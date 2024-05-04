@@ -12,6 +12,7 @@
     <h2>Rackets</h2>
     <ul class="heroes">
         <li *ngFor="let racket of rackets">
+            <!-- <img src="{{racket.imgPath}}" alt=""> -->
             <a routerLink="/detail/{{racket.id}}">
                 <span>{{racket.name}}</span>
             </a>
