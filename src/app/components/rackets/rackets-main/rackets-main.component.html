@@ -1,0 +1,22 @@
+<div class="rackets-main">
+    <h2>Rackets</h2>
+    <ul class="heroes">
+        <li *ngFor="let racket of rackets">
+            <button type="button" (click)="onSelect(racket)">
+                {{racket.name}}
+            </button>
+        </li>
+    </ul>
+</div>
+<!-- <app-rackets-detail [racket]="selectedRacket"></app-rackets-detail> -->
+<div *ngIf="selectedRacket">
+    <h2>{{selectedRacket.name | uppercase}}</h2>
+    <img src="{{selectedRacket.imgPath}}" alt="">
+    <div>ID: {{selectedRacket.id}}</div>
+    <div>Price: {{selectedRacket.price}} $</div>
+    <div>Length: {{selectedRacket.length}} (mm)</div>
+    <div>Shaft Flexibility: {{selectedRacket.shaftFlex}}</div>
+    <div>Weight: {{selectedRacket.weight.join(', ')}}</div>
+    <div>String Tension: {{selectedRacket.tension.join(', ')}} (lbs)</div>
+    <div>Play Style: {{selectedRacket.style.join(', ')}}</div>
+</div>
