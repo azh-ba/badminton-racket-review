@@ -1,22 +1,21 @@
 <div class="rackets-main">
+    <h2>Add New Racket</h2>
+    <div>
+        <label for="new-racket">Racket name: </label>
+        <input id="new-racket" #racketName />
+      
+        <!-- (click) passes input value to add() and then clears the input -->
+        <button type="button" class="add-button" (click)="add(racketName.value); racketName.value=''">
+          Add Racket
+        </button>
+    </div>
     <h2>Rackets</h2>
     <ul class="heroes">
         <li *ngFor="let racket of rackets">
-            <button type="button" (click)="onSelect(racket)">
-                {{racket.name}}
-            </button>
+            <a routerLink="/detail/{{racket.id}}">
+                <span>{{racket.name}}</span>
+            </a>
+            <button type="button" class="delete" title="delete racket" (click)="delete(racket)">X</button>
         </li>
     </ul>
-</div>
-<!-- <app-rackets-detail [racket]="selectedRacket"></app-rackets-detail> -->
-<div *ngIf="selectedRacket">
-    <h2>{{selectedRacket.name | uppercase}}</h2>
-    <img src="{{selectedRacket.imgPath}}" alt="">
-    <div>ID: {{selectedRacket.id}}</div>
-    <div>Price: {{selectedRacket.price}} $</div>
-    <div>Length: {{selectedRacket.length}} (mm)</div>
-    <div>Shaft Flexibility: {{selectedRacket.shaftFlex}}</div>
-    <div>Weight: {{selectedRacket.weight.join(', ')}}</div>
-    <div>String Tension: {{selectedRacket.tension.join(', ')}} (lbs)</div>
-    <div>Play Style: {{selectedRacket.style.join(', ')}}</div>
 </div>

@@ -1,1 +1,12 @@
-<p>rackets-detail works!</p>
+<div *ngIf="racket">
+    <h2>{{racket.name | uppercase}}</h2>
+    <img src="{{racket.imgPath}}" alt="">
+    <div>ID: {{racket.id}}</div>
+    <div>Price: {{racket.price}} $</div>
+    <div>Length: {{racket.length}} (mm)</div>
+    <div>Shaft Flexibility: {{racket.shaftFlex}}</div>
+    <div>Weight: {{racket.weight.join(', ')}}</div>
+    <div>String Tension: {{racket.tension.join(', ')}} (lbs)</div>
+    <div>Play Style: {{racket.style.join(', ')}}</div>
+</div>
+<button type="button" (click)="goBack()">Back</button>
