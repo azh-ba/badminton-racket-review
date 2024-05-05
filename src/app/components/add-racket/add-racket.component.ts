@@ -17,12 +17,12 @@ export class AddRacketComponent {
   flex!: string;
   weight!: string;
   tension!: number;
-  imgPath?: string;
+  imgPath!: string;
 
   constructor(private racketService: RacketService) { }
 
   onSubmit(): void {
-    if(!this.text || !this.brand || !this.price || !this.length || !this.bp || !this.flex || !this.weight || !this.tension) {
+    if(!this.text || !this.brand || !this.price || !this.length || !this.bp || !this.flex || !this.weight || !this.tension || !this.imgPath) {
       alert('Please fill out all the information!');
       return;
     }

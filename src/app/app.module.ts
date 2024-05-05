@@ -12,6 +12,7 @@ import { RacketsDetailComponent } from './components/rackets/rackets-detail/rack
 import { HomeComponent } from './components/home/home.component';
 import { AddRacketComponent } from './components/add-racket/add-racket.component';
 import { AboutComponent } from './components/about/about.component';
+import { RacketsSearchComponent } from './components/rackets/rackets-search/rackets-search.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AboutComponent } from './components/about/about.component';
     RacketsDetailComponent,
     HomeComponent,
     AddRacketComponent,
-    AboutComponent
+    AboutComponent,
+    RacketsSearchComponent
   ],
   imports: [
     BrowserModule,

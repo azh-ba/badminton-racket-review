@@ -3,7 +3,7 @@ import { Racket } from '../racket';
 
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +54,15 @@ export class RacketService {
     const url = `${this.apiUrl}/${id}`;
     return this.httpClient.delete<Racket>(url, this.httpOptions).pipe(
       catchError(this.handleError<Racket>('deleteRacket'))
+    );
+  }
+
+  searchRackets(term: string): Observable<Racket[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.httpClient.get<Racket[]>(`${this.apiUrl}/?name=${term}`).pipe(
+      catchError(this.handleError<Racket[]>('searchRackets', []))
     );
   }
 }

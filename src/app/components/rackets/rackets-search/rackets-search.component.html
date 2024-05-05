@@ -1,0 +1,12 @@
+<div id="search-component">
+    <label for="search-box">Racket Search</label>
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+    <ul class="search-result">
+        <li *ngFor="let racket of rackets$ | async">
+            <a routerLink="/detail/{{racket.id}}">
+                {{racket.name}}
+            </a>
+        </li>
+    </ul>
+</div>
