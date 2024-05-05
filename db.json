@@ -35,6 +35,18 @@
       "weight": "4U",
       "tension": 26,
       "imgPath": "../assets/racket-img/astrox-6.JPG"
+    },
+    {
+      "name": "Nanoflare 1000z",
+      "brand": "Yonex",
+      "price": "259.99",
+      "length": "675",
+      "balancePoint": "295",
+      "shaftFlex": "Very Stiff",
+      "weight": "4U",
+      "tension": "28",
+      "imgPath": "../assets/racket-img/nanoflare-1000z.webp",
+      "id": 4
     }
   ]
 }
