@@ -1,7 +1,10 @@
+<!-- <app-rackets-search></app-rackets-search> -->
 <h2>Top Rackets</h2>
-<div class="heroes-menu">
-  <a *ngFor="let racket of rackets" routerLink="/detail/{{racket.id}}">
-    <img src="{{racket.imgPath}}" alt="">
-    {{racket.name}}
-  </a>
+<div class="home">
+  <div class="rackets-menu">
+    <a *ngFor="let racket of rackets" routerLink="/detail/{{racket.id}}">
+      {{racket.name}}
+      <img src="{{racket.imgPath}}" alt="">
+    </a>
+  </div>
 </div>

@@ -6,10 +6,10 @@
       "brand": "Yonex",
       "price": 264.99,
       "length": 675,
-      "balancePoint": 301,
+      "balancePoint": 300,
       "shaftFlex": "Very Stiff",
-      "weight": "4U",
-      "tension": 28,
+      "weight": "3U",
+      "tension": 29,
       "imgPath": "../assets/racket-img/astrox-88d-pro-2024.webp"
     },
     {
@@ -34,7 +34,7 @@
       "shaftFlex": "Flex",
       "weight": "4U",
       "tension": 26,
-      "imgPath": "../assets/racket-img/astrox-6.JPG"
+      "imgPath": "../assets/racket-img/astrox-6.webp"
     },
     {
       "name": "Nanoflare 1000z",

@@ -1,0 +1,39 @@
+@media screen and (max-width: 676px) {
+    h2 {
+        text-align: center;
+    }
+}
+
+.top-nav {
+    border-bottom: 2px solid black;
+
+    /* grid */
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(338px, 1fr));
+}
+
+h2 {
+    cursor: pointer;
+    padding: 10px;
+}
+
+#top-nav-link {
+    /* flex */
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    padding: 20px 10px;
+
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+
+    &:hover {
+        background-color: black;
+        color: white;
+    }
+}
