@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { RACKETS } from '../mock-racket';
 import { Racket } from '../racket';
 
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map } from 'rxjs';
+import { catchError, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +45,7 @@ export class RacketService {
 
   addRacket(racket: Racket): Observable<Racket> {
     return this.httpClient.post<Racket>(this.apiUrl, racket, this.httpOptions).pipe(
+      tap(_ => {console.log('Im working')}),
       catchError(this.handleError<Racket>('addRacket'))
     );
   }

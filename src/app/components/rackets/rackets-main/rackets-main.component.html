@@ -1,14 +1,4 @@
 <div class="rackets-main">
-    <h2>Add New Racket</h2>
-    <div>
-        <label for="new-racket">Racket name: </label>
-        <input id="new-racket" #racketName />
-      
-        <!-- (click) passes input value to add() and then clears the input -->
-        <button type="button" class="add-button" (click)="add(racketName.value); racketName.value=''">
-          Add Racket
-        </button>
-    </div>
     <h2>Rackets</h2>
     <ul class="heroes">
         <li *ngFor="let racket of rackets">

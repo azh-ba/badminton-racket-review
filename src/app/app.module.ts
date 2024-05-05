@@ -10,6 +10,8 @@ import { TopNavComponent } from './components/top-nav/top-nav.component';
 import { RacketsMainComponent } from './components/rackets/rackets-main/rackets-main.component';
 import { RacketsDetailComponent } from './components/rackets/rackets-detail/rackets-detail.component';
 import { HomeComponent } from './components/home/home.component';
+import { AddRacketComponent } from './components/add-racket/add-racket.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { HomeComponent } from './components/home/home.component';
     TopNavComponent,
     RacketsMainComponent,
     RacketsDetailComponent,
-    HomeComponent
+    HomeComponent,
+    AddRacketComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

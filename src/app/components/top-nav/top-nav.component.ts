@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RacketService } from 'src/app/services/racket.service';
 
 @Component({
   selector: 'app-top-nav',
@@ -6,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./top-nav.component.scss']
 })
 export class TopNavComponent {
-
 }

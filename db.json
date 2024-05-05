@@ -3,61 +3,37 @@
     {
       "id": 1,
       "name": "Astrox 88D Pro",
+      "brand": "Yonex",
       "price": 264.99,
       "length": 675,
       "balancePoint": 301,
       "shaftFlex": "Very Stiff",
-      "weight": [
-        "3U",
-        "4U"
-      ],
-      "tension": [
-        29,
-        28
-      ],
-      "style": [
-        "Powerful Attack"
-      ],
+      "weight": "4U",
+      "tension": 28,
       "imgPath": "../assets/racket-img/astrox-88d-pro-2024.webp"
     },
     {
       "id": 2,
       "name": "Astrox 88S Pro",
+      "brand": "Yonex",
       "price": 264.99,
       "length": 670,
       "balancePoint": 298,
       "shaftFlex": "Very Stiff",
-      "weight": [
-        "3U",
-        "4U"
-      ],
-      "tension": [
-        29,
-        28
-      ],
-      "style": [
-        "Fast Counter-Attack",
-        "Defend"
-      ],
+      "weight": "3U",
+      "tension": 29,
       "imgPath": "../assets/racket-img/astrox-88s-pro-2024.webp"
     },
     {
       "id": 3,
       "name": "Astrox 6",
+      "brand": "Yonex",
       "price": 149.99,
       "length": 673,
       "balancePoint": 295,
       "shaftFlex": "Flex",
-      "weight": [
-        "4U"
-      ],
-      "tension": [
-        26
-      ],
-      "style": [
-        "Attack",
-        "Fast Counter-Attack"
-      ],
+      "weight": "4U",
+      "tension": 26,
       "imgPath": "../assets/racket-img/astrox-6.JPG"
     }
   ]
