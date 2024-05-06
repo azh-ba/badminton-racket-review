@@ -11,6 +11,8 @@ import { RacketService } from 'src/app/services/racket.service';
   styleUrls: ['./rackets-detail.component.scss']
 })
 export class RacketsDetailComponent {
+  rackets: Racket[] = [];
+
   @Input() racket?: Racket;
 
   constructor(
@@ -21,6 +23,12 @@ export class RacketsDetailComponent {
 
   ngOnInit(): void {
     this.getRacket();
+    this.getRackets();
+  }
+
+  getRackets(): void {
+    this.racketService.getRackets()
+      .subscribe((rackets: Racket[]) => this.rackets = rackets);
   }
 
   getRacket(): void {
@@ -34,6 +42,9 @@ export class RacketsDetailComponent {
   }
 
   delete(racket: Racket): void {
-    
+    this.rackets = this.rackets.filter(r => r !== racket);
+    this.racketService.deleteRacket(racket.id).subscribe();
+    alert("Delete Successfully!");
+    this.goBack();
   }
 }

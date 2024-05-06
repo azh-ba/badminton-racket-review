@@ -20,8 +20,8 @@ export class HomeComponent {
   getRandomRackets(): void {
     this.racketService.getRackets()
       .subscribe((randomRackets: Racket[]) => {
-        const shuffled = randomRackets.sort(() => 0.5 - Math.random());
-        this.rackets = shuffled.slice(0, 3);
+        const shuffled = randomRackets.sort(() => 0.8 - Math.random());
+        this.rackets = shuffled.slice(0, 4);
       });
   }
 }

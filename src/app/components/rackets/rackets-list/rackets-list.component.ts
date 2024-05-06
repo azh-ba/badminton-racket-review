@@ -22,9 +22,4 @@ export class RacketsListComponent implements OnInit {
     this.racketService.getRackets()
       .subscribe((rackets: Racket[]) => this.fullRacketList = rackets);
   }
-
-  delete(racket: Racket): void {
-    this.rackets = this.rackets.filter(r => r !== racket);
-    this.racketService.deleteRacket(racket.id).subscribe();
-  }
 }

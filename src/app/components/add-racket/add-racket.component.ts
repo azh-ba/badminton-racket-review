@@ -49,17 +49,17 @@ export class AddRacketComponent {
       this.review = "Haven't played with this lol.";
     }
       
-    const newImgPath = '../assets/racket-img/' + this.imgPath;
+    const newImgPath = '../assets/racket-img/' + this.imgPath + '.webp';
 
     const newRacket: Racket = {
       name: this.text,
       brand: this.brand,
-      price: this.price,
-      length: this.length,
-      balancePoint: this.bp,
+      price: Number(this.price),
+      length: Number(this.length),
+      balancePoint: Number(this.bp),
       shaftFlex: this.flex,
       weight: this.weight,
-      tension: this.tension,
+      tension: Number(this.tension),
       imgPath: newImgPath,
       review: this.review
     }
