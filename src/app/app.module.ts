@@ -15,6 +15,7 @@ import { AboutComponent } from './components/about/about.component';
 import { RacketsSearchComponent } from './components/rackets/rackets-search/rackets-search.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { RacketsListComponent } from './components/rackets/rackets-list/rackets-list.component';
+import { SpecsComponent } from './components/specs/specs.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RacketsListComponent } from './components/rackets/rackets-list/rackets-
     AboutComponent,
     RacketsSearchComponent,
     PageNotFoundComponent,
-    RacketsListComponent
+    RacketsListComponent,
+    SpecsComponent
   ],
   imports: [
     BrowserModule,

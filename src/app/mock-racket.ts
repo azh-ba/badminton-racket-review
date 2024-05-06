@@ -12,6 +12,7 @@ export const RACKETS: Racket[] = [
         weight: "4U",
         tension: 28,
         imgPath: '../assets/racket-img/astrox-88d-pro-2024.webp',
+        review: '',
     },
     {
         id: 2,
@@ -24,6 +25,7 @@ export const RACKETS: Racket[] = [
         weight: "3U",
         tension: 29,
         imgPath: '../assets/racket-img/astrox-88s-pro-2024.webp',
+        review: '',
     },
     {
         id: 3,
@@ -36,5 +38,6 @@ export const RACKETS: Racket[] = [
         weight: "4U",
         tension: 26,
         imgPath: '../assets/racket-img/astrox-6.JPG',
+        review: '',
     },
 ];

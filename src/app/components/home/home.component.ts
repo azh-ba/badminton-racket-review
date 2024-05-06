@@ -14,11 +14,14 @@ export class HomeComponent {
   constructor(private racketService: RacketService) { }
 
   ngOnInit(): void {
-    this.getRackets();
+    this.getRandomRackets();
   }
 
-  getRackets(): void {
+  getRandomRackets(): void {
     this.racketService.getRackets()
-      .subscribe(rackets => this.rackets = rackets.slice(0, 3));
+      .subscribe((randomRackets: Racket[]) => {
+        const shuffled = randomRackets.sort(() => 0.5 - Math.random());
+        this.rackets = shuffled.slice(0, 3);
+      });
   }
 }

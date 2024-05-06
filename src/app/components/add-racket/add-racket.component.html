@@ -87,7 +87,18 @@
             name="imgPath"
             id="imgPath"
             placeholder="ex. astrox-100zz.png"
+            [(ngModel)]="imgPath"
         />
+    </div>
+    <div class="form-control">
+        <label for="text">Review: </label>
+        <textarea
+            type="text"
+            name="review"
+            id="review"
+            placeholder="ex. I love this racket!"
+            [(ngModel)]="review"
+        ></textarea>
     </div>
     <input type="submit" value="Save Racket">
 </form>

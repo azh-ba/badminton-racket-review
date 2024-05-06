@@ -1,0 +1,81 @@
+.rackets-detail {
+    width: 100%;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+
+    margin: 20px 0;
+}
+
+img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+
+    margin-bottom: 10px;
+
+    /* center */
+    display: block;
+    margin: auto;
+}
+
+.text-block {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+
+    width: max(30%, 300px);
+
+    border: 2px solid black;
+    border-radius: 5px;
+    
+    .key {
+        display: inline-block;
+        width: 50%;
+        padding-left: 10px;
+    }
+}
+
+.racket-review {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+
+    width: max(30%, 300px);
+}
+
+section {
+    display: block;
+    margin: auto;
+}
+
+.button-block {
+    display: block;
+    width: max(30%, 300px);
+    margin: auto;
+    margin-top: 20px;
+
+    /* flex */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+
+    button {
+        width: 100px;
+        height: 40px;
+
+        border-radius: 5px;
+    }
+}
+
+#back {
+    font-weight: bold;
+    background-color: lightcyan;
+}
+
+#delete {
+    font-weight: bold;
+    background-color: lightcoral;
+}

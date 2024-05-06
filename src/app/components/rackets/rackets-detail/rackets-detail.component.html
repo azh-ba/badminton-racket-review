@@ -1,12 +1,41 @@
-<div *ngIf="racket">
+<div *ngIf="racket" class="rackets-detail">
     <h2>{{racket.name | uppercase}}</h2>
     <img src="{{racket.imgPath}}" alt="">
-    <div>ID: {{racket.id}}</div>
-    <div>Price: {{racket.price}} $</div>
-    <div>Length: {{racket.length}} mm</div>
-    <div>Shaft Flexibility: {{racket.shaftFlex}}</div>
-    <div>Weight: {{racket.weight}}</div>
-    <div>String Tension: {{racket.tension}} lbs</div>
-    <button type="button" (click)="goBack()">Back</button>
-    <button type="button" class="delete" title="delete racket" (click)="delete(racket)">DELETE</button>
+
+    <div class="text-block">
+        <div class="key">
+            <h4>ID</h4>
+        </div> {{racket.id}}
+        <div class="key">
+            <h4>Price</h4>
+        </div> {{racket.price}} $
+        <div class="key">
+            <h4>Length</h4>
+        </div> {{racket.length}} mm
+        <div class="key">
+            <h4>Shaft Flexibility</h4>
+        </div> {{racket.shaftFlex}}
+        <div class="key">
+            <h4>Weight</h4>
+        </div> {{racket.weight}}
+        <div class="key">
+            <h4>String Tension</h4>
+        </div> {{racket.tension}} lbs
+        <!-- <p>Price:</p>               {{racket.price}} $
+        <p>Length:</p>              {{racket.length}} mm
+        <p>Shaft Flexibility:</p>   {{racket.shaftFlex}}
+        <p>Weight:</p>              {{racket.weight}}
+        <p>String Tension:</p>      {{racket.tension}} lbs -->
+    </div>
+
+    <div class="racket-review">
+        <section>
+            {{racket.review}}
+        </section>
+    </div>
+
+    <div class="button-block">
+        <button id="back" type="button" (click)="goBack()">Back</button>
+        <button id="delete" type="button" class="delete" (click)="delete(racket)">DELETE</button>
+    </div>
 </div>

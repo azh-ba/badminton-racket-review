@@ -18,6 +18,7 @@ export class AddRacketComponent {
   weight!: string;
   tension!: number;
   imgPath!: string;
+  review?: string;
 
   constructor(private racketService: RacketService) { }
 
@@ -43,6 +44,10 @@ export class AddRacketComponent {
       alert('String tension value must be a number!');
       return;
     }
+    
+    if(!this.review) {
+      this.review = "Haven't played with this lol.";
+    }
       
     const newImgPath = '../assets/racket-img/' + this.imgPath;
 
@@ -56,6 +61,7 @@ export class AddRacketComponent {
       weight: this.weight,
       tension: this.tension,
       imgPath: newImgPath,
+      review: this.review
     }
 
     this.racketService.addRacket(newRacket).subscribe();
@@ -71,5 +77,6 @@ export class AddRacketComponent {
     this.weight = '';
     this.tension = 0;
     this.imgPath = '';
+    this.review = '';
   }
 }

@@ -1,0 +1,15 @@
+label {
+    font-weight: bold;
+}
+
+input {
+    font-size: 17px;
+
+    width: max(50%, 300px);
+    padding: 12px 20px;
+    margin: 8px 0;
+
+    border: 2px solid black;
+    border-radius: 5px;
+    outline: none;
+}

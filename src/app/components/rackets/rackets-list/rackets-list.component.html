@@ -3,10 +3,12 @@
     <ul class="rackets-list">
         <li *ngFor="let racket of rackets">
             <!-- <img src="{{racket.imgPath}}" alt=""> -->
-            <a routerLink="/detail/{{racket.id}}">
-                <span>{{racket.name}}</span>
-            </a>
-            <button type="button" class="delete" title="delete racket" (click)="delete(racket)">X</button>
+            <button class="rackets-list-item">
+                <a routerLink="/detail/{{racket.id}}">
+                    <!-- <span>{{racket.name}}</span> -->
+                    {{racket.name}}
+                </a>
+            </button>
         </li>
     </ul>
 </div>
@@ -16,10 +18,13 @@
     <ul class="rackets-list">
         <li *ngFor="let racket of fullRacketList">
             <!-- <img src="{{racket.imgPath}}" alt=""> -->
-            <a routerLink="/detail/{{racket.id}}">
-                <span>{{racket.name}}</span>
-            </a>
-            <button type="button" class="delete" title="delete racket" (click)="delete(racket)">X</button>
+            <button class="rackets-list-item" routerLink="/detail/{{racket.id}}">
+                <!-- <a >
+                    <span>{{racket.name}}</span>
+                    {{racket.name}}
+                </a> -->
+                {{racket.name}}
+            </button>
         </li>
     </ul>
 </div>

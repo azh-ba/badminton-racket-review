@@ -24,7 +24,7 @@ h2 {
     justify-content: center;
 }
 
-a {
+#nav {
     padding: 20px 10px;
 
     text-align: center;
@@ -36,4 +36,10 @@ a {
         background-color: black;
         color: white;
     }
+}
+
+h2 a {
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
 }

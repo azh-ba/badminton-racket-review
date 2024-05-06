@@ -1,0 +1,47 @@
+h2 {
+    text-align: center;
+
+    margin: 20px 0;
+}
+
+input, textarea {
+    font-family: inherit;
+    font-size: 100%;
+
+    display: block;
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+
+    border: 2px solid black;
+    border-radius: 5px;
+
+    outline: none;
+
+    &:last-child {
+        margin-bottom: 20px;
+    }
+
+    &[type=submit] {
+        width: 70%;
+
+        background-color: lightgreen;
+        font-weight: bold;
+    }
+}
+
+.add-form {
+    width: max(50%, 300px);
+
+    display: block;
+    margin: auto;
+}
+
+.form-control {
+    label {
+        display: block;
+        padding: 10px;
+
+        font-weight: bold;
+    }
+}

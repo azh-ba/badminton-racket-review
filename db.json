@@ -10,7 +10,8 @@
       "shaftFlex": "Very Stiff",
       "weight": "3U",
       "tension": 29,
-      "imgPath": "../assets/racket-img/astrox-88d-pro-2024.webp"
+      "imgPath": "../assets/racket-img/astrox-88d-pro-2024.webp",
+      "review": "Haven't played with this lol"
     },
     {
       "id": 2,
@@ -22,7 +23,8 @@
       "shaftFlex": "Very Stiff",
       "weight": "3U",
       "tension": 29,
-      "imgPath": "../assets/racket-img/astrox-88s-pro-2024.webp"
+      "imgPath": "../assets/racket-img/astrox-88s-pro-2024.webp",
+      "review": "Haven't played with this lol"
     },
     {
       "id": 3,
@@ -34,7 +36,8 @@
       "shaftFlex": "Flex",
       "weight": "4U",
       "tension": 26,
-      "imgPath": "../assets/racket-img/astrox-6.webp"
+      "imgPath": "../assets/racket-img/astrox-6.webp",
+      "review": "My main racket from 2022. Not too head heavy, although it feels sluggish if your stamina is down. A bit slow when defending. Love to smash with it."
     },
     {
       "name": "Nanoflare 1000z",
@@ -46,7 +49,21 @@
       "weight": "4U",
       "tension": "28",
       "imgPath": "../assets/racket-img/nanoflare-1000z.webp",
-      "id": 4
+      "id": 4,
+      "review": "Haven't played with this lol"
+    },
+    {
+      "name": "Nanoflare 800 Play",
+      "brand": "Yonex",
+      "price": "69.99",
+      "length": "675",
+      "balancePoint": "280",
+      "shaftFlex": "Medium",
+      "weight": "4U",
+      "tension": "28",
+      "imgPath": "../assets/racket-img/nanoflare-800-play.jpg",
+      "review": "Haven't played with this lol.",
+      "id": 5
     }
   ]
 }

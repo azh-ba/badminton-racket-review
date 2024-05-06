@@ -1,5 +1,6 @@
 h2 {
     text-align: center;
+    margin: 20px 0;
 }
 
 .home {
@@ -17,17 +18,17 @@ h2 {
 
 a {
     margin: 10px;
-    border: 2px solid black;
-    border-radius: 10px;
+
+    border-radius: 3px;
 
     font-size: 20px;
     text-align: center;
     text-decoration: none;
+    color: black;
 
     &:hover {
-        background-color: black;
-        color: white;
-        border: 5px solid black;
+        color: red;
+        border: none;
     }
 }
 
@@ -38,4 +39,8 @@ img {
     height: 300px;
     object-fit: cover;
 
+    transition: transform 0.2s;
+    &:hover {
+        transform: scale(0.9);
+    }
 }

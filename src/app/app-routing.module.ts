@@ -8,6 +8,7 @@ import { RacketsDetailComponent } from './components/rackets/rackets-detail/rack
 import { AddRacketComponent } from './components/add-racket/add-racket.component';
 import { AboutComponent } from './components/about/about.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SpecsComponent } from './components/specs/specs.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: RacketsDetailComponent },
   { path: 'add', component: AddRacketComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'specs', component: SpecsComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 

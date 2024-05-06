@@ -1,12 +1,16 @@
-.about {
+.specs {
     display: block;
     margin: auto;
 
     width: 80%;
 }
 
-p {
+p, ul {
     margin: 10px 0;
     padding: 10px;
     text-indent: 10%;
+}
+
+ul {
+    list-style: none;
 }
