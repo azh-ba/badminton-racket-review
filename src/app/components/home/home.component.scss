@@ -1,6 +1,19 @@
+@use '../../../base';
+
 h2 {
     text-align: center;
     margin: 20px 0;
+}
+
+.home-main {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+
+    width: 95%;
+
+    border: 2px solid black;
+    border-radius: 5px;
 }
 
 .home {

@@ -1,104 +1,106 @@
-<h2>Add a Racket</h2>
-<form class="add-form" (ngSubmit)="onSubmit()">
-    <div class="form-control">
-        <label for="text">Name: </label>
-        <input 
-            type="text"
-            name="text"
-            id="text"
-            placeholder="ex. Astrox 100zz"
-            [(ngModel)]="text"
-        />
-    </div>
-    <div class="form-control">
-        <label for="text">Brand: </label>
-        <input 
-            type="text"
-            name="brand"
-            id="brand"
-            placeholder="ex. Yonex"
-            [(ngModel)]="brand"
-        />
-    </div>
-    <div class="form-control">
-        <label for="text">Price ($): </label>
-        <input 
-            type="text"
-            name="price"
-            id="price"
-            placeholder="ex. 89.99"
-            [(ngModel)]="price"
-        />
-    </div>
-    <div class="form-control">
-        <label for="text">Length (mm): </label>
-        <input 
-            type="text"
-            name="length"
-            id="length"
-            placeholder="ex. 675"
-            [(ngModel)]="length"
-        />
-    </div>
-    <div class="form-control">
-        <label for="text">Balance Point (mm): </label>
-        <input 
-            type="text"
-            name="bp"
-            id="bp"
-            placeholder="ex. 295"
-            [(ngModel)]="bp"
-        />
-    </div>
-    <div class="form-control">
-        <label for="text">Shaft Flexibility: </label>
-        <input 
-            type="text"
-            name="flex"
-            id="flex"
-            placeholder="ex. Very Stiff"
-            [(ngModel)]="flex"
-        />
-    </div>
-    <div class="form-control">
-        <label for="text">Weight (U): </label>
-        <input 
-            type="text"
-            name="weight"
-            id="weight"
-            placeholder="ex. 3U"
-            [(ngModel)]="weight"
-        />
-    </div>
-    <div class="form-control">
-        <label for="text">String Tension (lbs): </label>
-        <input 
-            type="text"
-            name="tension"
-            id="tension"
-            placeholder="ex. 24"
-            [(ngModel)]="tension"
-        />
-    </div>
-    <div class="form-control">
-        <label for="text">Image name (must be in assets/racket-img): </label>
-        <input 
-            type="text"
-            name="imgPath"
-            id="imgPath"
-            placeholder="ex. astrox-100zz.png"
-            [(ngModel)]="imgPath"
-        />
-    </div>
-    <div class="form-control">
-        <label for="text">Review: </label>
-        <textarea
-            type="text"
-            name="review"
-            id="review"
-            placeholder="ex. I love this racket!"
-            [(ngModel)]="review"
-        ></textarea>
-    </div>
-    <input type="submit" value="Save Racket">
-</form>
+<div class="border">
+    <h2>Add a Racket</h2>
+    <form class="add-form" (ngSubmit)="onSubmit()">
+        <div class="form-control">
+            <label for="text">Name: </label>
+            <input 
+                type="text"
+                name="text"
+                id="text"
+                placeholder="ex. Astrox 100zz"
+                [(ngModel)]="text"
+            />
+        </div>
+        <div class="form-control">
+            <label for="text">Brand: </label>
+            <input 
+                type="text"
+                name="brand"
+                id="brand"
+                placeholder="ex. Yonex"
+                [(ngModel)]="brand"
+            />
+        </div>
+        <div class="form-control">
+            <label for="text">Price ($): </label>
+            <input 
+                type="text"
+                name="price"
+                id="price"
+                placeholder="ex. 89.99"
+                [(ngModel)]="price"
+            />
+        </div>
+        <div class="form-control">
+            <label for="text">Length (mm): </label>
+            <input 
+                type="text"
+                name="length"
+                id="length"
+                placeholder="ex. 675"
+                [(ngModel)]="length"
+            />
+        </div>
+        <div class="form-control">
+            <label for="text">Balance Point (mm): </label>
+            <input 
+                type="text"
+                name="bp"
+                id="bp"
+                placeholder="ex. 295"
+                [(ngModel)]="bp"
+            />
+        </div>
+        <div class="form-control">
+            <label for="text">Shaft Flexibility: </label>
+            <input 
+                type="text"
+                name="flex"
+                id="flex"
+                placeholder="ex. Very Stiff"
+                [(ngModel)]="flex"
+            />
+        </div>
+        <div class="form-control">
+            <label for="text">Weight (U): </label>
+            <input 
+                type="text"
+                name="weight"
+                id="weight"
+                placeholder="ex. 3U"
+                [(ngModel)]="weight"
+            />
+        </div>
+        <div class="form-control">
+            <label for="text">String Tension (lbs): </label>
+            <input 
+                type="text"
+                name="tension"
+                id="tension"
+                placeholder="ex. 24"
+                [(ngModel)]="tension"
+            />
+        </div>
+        <div class="form-control">
+            <label for="text">Image name (must be in assets/racket-img): </label>
+            <input 
+                type="text"
+                name="imgPath"
+                id="imgPath"
+                placeholder="ex. astrox-100zz.png"
+                [(ngModel)]="imgPath"
+            />
+        </div>
+        <div class="form-control">
+            <label for="text">Review: </label>
+            <textarea
+                type="text"
+                name="review"
+                id="review"
+                placeholder="ex. I love this racket!"
+                [(ngModel)]="review"
+            ></textarea>
+        </div>
+        <input type="submit" value="Save Racket">
+    </form>
+</div>
