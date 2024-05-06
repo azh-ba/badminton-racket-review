@@ -1,0 +1,25 @@
+<!-- Search box is filled -->
+<div *ngIf="!check">
+    <ul class="rackets-list">
+        <li *ngFor="let racket of rackets">
+            <!-- <img src="{{racket.imgPath}}" alt=""> -->
+            <a routerLink="/detail/{{racket.id}}">
+                <span>{{racket.name}}</span>
+            </a>
+            <button type="button" class="delete" title="delete racket" (click)="delete(racket)">X</button>
+        </li>
+    </ul>
+</div>
+
+<!-- Init list when load -->
+<div *ngIf="check">
+    <ul class="rackets-list">
+        <li *ngFor="let racket of fullRacketList">
+            <!-- <img src="{{racket.imgPath}}" alt=""> -->
+            <a routerLink="/detail/{{racket.id}}">
+                <span>{{racket.name}}</span>
+            </a>
+            <button type="button" class="delete" title="delete racket" (click)="delete(racket)">X</button>
+        </li>
+    </ul>
+</div>

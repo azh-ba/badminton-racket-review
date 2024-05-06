@@ -32,4 +32,8 @@ export class RacketsDetailComponent {
   goBack(): void {
     this.location.back();
   }
+
+  delete(racket: Racket): void {
+    
+  }
 }

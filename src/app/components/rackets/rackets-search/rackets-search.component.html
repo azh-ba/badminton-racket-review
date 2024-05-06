@@ -2,11 +2,12 @@
     <label for="search-box">Racket Search</label>
     <input #searchBox id="search-box" (input)="search(searchBox.value)" />
 
-    <ul class="search-result">
-        <li *ngFor="let racket of rackets$ | async">
+    <!-- <ul class="search-result">
+        <li *ngFor="let racket of filteredRacketsList">
             <a routerLink="/detail/{{racket.id}}">
                 {{racket.name}}
             </a>
         </li>
-    </ul>
+    </ul> -->
+    <app-rackets-list [rackets]="filteredRacketsList" [check]="isEmptyList"></app-rackets-list>
 </div>

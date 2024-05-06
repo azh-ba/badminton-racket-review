@@ -29,9 +29,4 @@ export class RacketsMainComponent {
         this.rackets.push(racket);
       });
   }
-
-  delete(racket: Racket): void {
-    this.rackets = this.rackets.filter(r => r !== racket);
-    this.racketService.deleteRacket(racket.id).subscribe();
-  }
 }

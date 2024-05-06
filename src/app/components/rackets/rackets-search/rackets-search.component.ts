@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { Router } from '@angular/router';
 
 import { Racket } from 'src/app/racket';
 import { RacketService } from 'src/app/services/racket.service';
@@ -12,26 +9,28 @@ import { RacketService } from 'src/app/services/racket.service';
   styleUrls: ['./rackets-search.component.scss']
 })
 export class RacketsSearchComponent implements OnInit {
-  rackets$!: Observable<Racket[]>;
-  private searchTerms = new Subject<string>();
+  isEmptyList: boolean = true;
+  racketsList: Racket[] = [];
+  filteredRacketsList: Racket[] = this.racketsList;
 
-  constructor(private racketService: RacketService, private router: Router) { }
+  constructor(private racketService: RacketService) { }
 
-  // push a search term into the observable stream
   search(term: string): void {
-    this.searchTerms.next(term);
+    if (!term) {
+      this.filteredRacketsList = this.racketsList;
+      return;
+    }
+
+    this.isEmptyList = false;
+    this.filteredRacketsList = this.racketsList.filter(
+      racket => racket?.name.toLowerCase().includes(term.toLowerCase())
+    );
   }
 
   ngOnInit(): void {
-    // this.rackets$ = this.searchTerms.pipe(
-    //   // wait 300ms after each keystroke before considering the term
-    //   debounceTime(300),
+    this.racketService.getRackets()
+      .subscribe((rackets: Racket[]) => this.racketsList = rackets);
 
-    //   // ignore new term if same as previous term
-    //   distinctUntilChanged(),
-
-    //   // switch to new search observable each time the term changes
-    //   switchMap((term: string) => this.racketService.searchRackets(term)),
-    // );    
+    this.filteredRacketsList = this.racketsList;
   }
 }

@@ -13,6 +13,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AddRacketComponent } from './components/add-racket/add-racket.component';
 import { AboutComponent } from './components/about/about.component';
 import { RacketsSearchComponent } from './components/rackets/rackets-search/rackets-search.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { RacketsListComponent } from './components/rackets/rackets-list/rackets-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { RacketsSearchComponent } from './components/rackets/rackets-search/rack
     HomeComponent,
     AddRacketComponent,
     AboutComponent,
-    RacketsSearchComponent
+    RacketsSearchComponent,
+    PageNotFoundComponent,
+    RacketsListComponent
   ],
   imports: [
     BrowserModule,

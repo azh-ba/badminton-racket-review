@@ -1,12 +1,3 @@
 <div class="rackets-main">
-    <h2>Rackets</h2>
-    <ul class="heroes">
-        <li *ngFor="let racket of rackets">
-            <!-- <img src="{{racket.imgPath}}" alt=""> -->
-            <a routerLink="/detail/{{racket.id}}">
-                <span>{{racket.name}}</span>
-            </a>
-            <button type="button" class="delete" title="delete racket" (click)="delete(racket)">X</button>
-        </li>
-    </ul>
+    <app-rackets-search></app-rackets-search>
 </div>
