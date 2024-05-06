@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RacketService } from 'src/app/services/racket.service';
 
 @Component({
   selector: 'app-top-nav',

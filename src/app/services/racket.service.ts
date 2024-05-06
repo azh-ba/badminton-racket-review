@@ -52,12 +52,12 @@ export class RacketService {
     );
   }
 
-  searchRackets(term: string): Observable<Racket[]> {
-    if (!term.trim()) {
-      return of([]);
-    }
-    return this.httpClient.get<Racket[]>(`${this.apiUrl}/?name=${term}`).pipe(
-      catchError(this.handleError<Racket[]>('searchRackets', []))
-    );
-  }
+  // searchRackets(term: string): Observable<Racket[]> {
+  //   if (!term.trim()) {
+  //     return of([]);
+  //   }
+  //   return this.httpClient.get<Racket[]>(`${this.apiUrl}/?name=${term}`).pipe(
+  //     catchError(this.handleError<Racket[]>('searchRackets', []))
+  //   );
+  // }
 }

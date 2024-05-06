@@ -14,6 +14,13 @@ export class RacketsSearchComponent implements OnInit {
   filteredRacketsList: Racket[] = this.racketsList;
 
   constructor(private racketService: RacketService) { }
+  
+  ngOnInit(): void {
+    this.racketService.getRackets()
+      .subscribe((rackets: Racket[]) => this.racketsList = rackets);
+
+    this.filteredRacketsList = this.racketsList;
+  }
 
   search(term: string): void {
     if (!term) {
@@ -25,12 +32,5 @@ export class RacketsSearchComponent implements OnInit {
     this.filteredRacketsList = this.racketsList.filter(
       racket => racket?.name.toLowerCase().includes(term.toLowerCase())
     );
-  }
-
-  ngOnInit(): void {
-    this.racketService.getRackets()
-      .subscribe((rackets: Racket[]) => this.racketsList = rackets);
-
-    this.filteredRacketsList = this.racketsList;
   }
 }
