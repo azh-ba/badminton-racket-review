@@ -2,7 +2,7 @@ export interface Racket {
     id?: number;
     name: string;
     brand: string;
-    price?: number;
+    price: number;
     length: number;
     balancePoint: number;
     shaftFlex: string;

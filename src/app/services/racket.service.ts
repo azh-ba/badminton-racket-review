@@ -19,9 +19,6 @@ export class RacketService {
       // TODO: send error to remote loggin infrastructure
       console.error(error);
 
-      // TODO: better job of transforming error for user consumption
-      // this.log(`${operation} failed: ${error.message}`);
-
       // Let the app keep running by returning an empty result
       return of(result as T);
     }
@@ -30,7 +27,6 @@ export class RacketService {
   getRackets(): Observable<Racket[]> {
     return this.httpClient.get<Racket[]>(this.apiUrl)
       .pipe(
-        // tap(_ => this.log('fetched rackets')),
         catchError(this.handleError<Racket[]>('getRackets', []))
       );
   }
@@ -38,7 +34,6 @@ export class RacketService {
   getRacket(id: number): Observable<Racket> {
     const url = `${this.apiUrl}/${id}`;
     return this.httpClient.get<Racket>(url).pipe(
-      // tap(_ => this.log(`fetched racket id=${id}`)),
       catchError(this.handleError<Racket>(`getRacket id=${id}`))
     );
   }

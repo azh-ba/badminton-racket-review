@@ -21,7 +21,7 @@ export class HomeComponent {
     this.racketService.getRackets()
       .subscribe((randomRackets: Racket[]) => {
         const shuffled = randomRackets.sort(() => 0.8 - Math.random());
-        this.rackets = shuffled.slice(0, 4);
+        this.rackets = shuffled.slice(0, 4); 
       });
   }
 }
