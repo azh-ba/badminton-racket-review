@@ -25,7 +25,7 @@ export class AddRacketComponent implements OnInit {
       weight: new FormControl('', Validators.required),
       tension: new FormControl('', [Validators.required, Validators.pattern("^[0-9]+$")]),
       imgPath: new FormControl('', Validators.required),
-      review: new FormControl('Haven\'t try this one lol.', Validators.required),
+      review: new FormControl('Haven\'t try this one lol.', {nonNullable: true, validators: Validators.required}),
     });
   }
 
@@ -80,6 +80,8 @@ export class AddRacketComponent implements OnInit {
       this.racketService.addRacket(racket).subscribe();
 
       alert('Successfully added!');
+
+      this.racketForm.reset();
     }
   }
 }
