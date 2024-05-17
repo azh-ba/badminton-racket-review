@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { RacketsMainComponent } from './components/rackets/rackets-main/rackets-main.component';
 import { HomeComponent } from './components/home/home.component';
@@ -25,6 +27,8 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    BrowserModule,
     RouterModule.forRoot(routes),
   ]
 })

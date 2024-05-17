@@ -1,106 +1,117 @@
 <div class="border">
     <h2>Add a Racket</h2>
-    <form class="add-form" (ngSubmit)="onSubmit()">
+    <form class="add-form" [formGroup]="racketForm" (ngSubmit)="onSubmit()">
+        <!-- Name -->
         <div class="form-control">
-            <label for="text">Name: </label>
-            <input 
-                type="text"
-                name="text"
-                id="text"
-                placeholder="ex. Astrox 100zz"
-                [(ngModel)]="text"
-            />
+            <label for="name">Name: </label>
+            <!-- Validators -->
+            <div class="validators" *ngIf="racketForm.get('name')?.invalid && racketForm.get('name')?.touched">
+                <div *ngIf="racketForm.get('name')?.errors?.['required']">Required.</div>
+            </div>
+            <input type="text" id="name" formControlName="name">
         </div>
+        
+        <!-- Brand -->
         <div class="form-control">
-            <label for="text">Brand: </label>
-            <input 
-                type="text"
-                name="brand"
-                id="brand"
-                placeholder="ex. Yonex"
-                [(ngModel)]="brand"
-            />
+            <label for="brand">Brand: </label>
+            <!-- Validators -->
+            <div class="validators" *ngIf="racketForm.get('brand')?.invalid && racketForm.get('brand')?.touched">
+                <div *ngIf="racketForm.get('brand')?.errors?.['required']">Required.</div>
+            </div>
+            <input type="text" id="brand" formControlName="brand">
         </div>
+
+        <!-- Price -->
         <div class="form-control">
-            <label for="text">Price ($): </label>
-            <input 
-                type="text"
-                name="price"
-                id="price"
-                placeholder="ex. 89.99"
-                [(ngModel)]="price"
-            />
+            <label for="price">Price: </label>
+            <!-- Validators -->
+            <div class="validators"*ngIf="racketForm.get('price')?.invalid && racketForm.get('price')?.touched">
+                <div *ngIf="racketForm.get('price')?.errors?.['required']">Required.</div>
+                <div *ngIf="racketForm.get('price')?.errors?.['pattern']">Only accepts decimal number.</div>
+            </div>
+            <input type="text" id="price" formControlName="price">
         </div>
+
+        <!-- Length -->
         <div class="form-control">
-            <label for="text">Length (mm): </label>
-            <input 
-                type="text"
-                name="length"
-                id="length"
-                placeholder="ex. 675"
-                [(ngModel)]="length"
-            />
+            <label for="length">Length: </label>
+            <!-- Validators -->
+            <div class="validators" *ngIf="racketForm.get('length')?.invalid && racketForm.get('length')?.touched">
+                <div *ngIf="racketForm.get('length')?.errors?.['required']">Required.</div>
+                <div *ngIf="racketForm.get('length')?.errors?.['pattern']">Only accepts number.</div>
+            </div>
+            <input type="text" id="length" formControlName="length">
         </div>
+
+        <!-- Balance Point -->
         <div class="form-control">
-            <label for="text">Balance Point (mm): </label>
-            <input 
-                type="text"
-                name="bp"
-                id="bp"
-                placeholder="ex. 295"
-                [(ngModel)]="bp"
-            />
+            <label for="balancePoint">Price: </label>
+            <!-- Validators -->
+            <div class="validators" *ngIf="racketForm.get('balancePoint')?.invalid && racketForm.get('balancePoint')?.touched">
+                <div *ngIf="racketForm.get('balancePoint')?.errors?.['required']">Required.</div>
+                <div *ngIf="racketForm.get('balancePoint')?.errors?.['pattern']">Only accepts number.</div>
+            </div>
+            <input type="text" id="balancePoint" formControlName="balancePoint">
         </div>
+
+        <!-- Shaft Flexibility -->
         <div class="form-control">
-            <label for="text">Shaft Flexibility: </label>
-            <input 
-                type="text"
-                name="flex"
-                id="flex"
-                placeholder="ex. Very Stiff"
-                [(ngModel)]="flex"
-            />
+            <label for="shaftFlex">Shaft Flexibility: </label>
+            <!-- Validators -->
+            <div class="validators" *ngIf="racketForm.get('shaftFlex')?.invalid && racketForm.get('shaftFlex')?.touched">
+                <div *ngIf="racketForm.get('shaftFlex')?.errors?.['required']">Required.</div>
+            </div>
+            <input type="text" id="shaftFlex" formControlName="shaftFlex">
         </div>
+
+        <!-- Weight -->
         <div class="form-control">
-            <label for="text">Weight (U): </label>
-            <input 
-                type="text"
-                name="weight"
-                id="weight"
-                placeholder="ex. 3U"
-                [(ngModel)]="weight"
-            />
+            <label for="weight">Weight: </label>
+            <!-- Validators -->
+            <div class="validators" *ngIf="racketForm.get('weight')?.invalid && racketForm.get('weight')?.touched">
+                <div *ngIf="racketForm.get('weight')?.errors?.['required']">Required.</div>
+            </div>
+            <input type="text" id="weight" formControlName="weight">
         </div>
+
+        <!-- String Tension -->
         <div class="form-control">
-            <label for="text">String Tension (lbs): </label>
-            <input 
-                type="text"
-                name="tension"
-                id="tension"
-                placeholder="ex. 24"
-                [(ngModel)]="tension"
-            />
+            <label for="tension">String Tension: </label>
+            <!-- Validators -->
+            <div class="validators" *ngIf="racketForm.get('tension')?.invalid && racketForm.get('tension')?.touched">
+                <div *ngIf="racketForm.get('tension')?.errors?.['required']">Required.</div>
+                <div *ngIf="racketForm.get('tension')?.errors?.['pattern']">Only accepts number.</div>
+            </div>
+            <input type="text" id="tension" formControlName="tension">
         </div>
+
+        <!-- Image Path -->
         <div class="form-control">
-            <label for="text">Image name (must be in assets/racket-img): </label>
-            <input 
-                type="text"
-                name="imgPath"
-                id="imgPath"
-                placeholder="ex. astrox-100zz"
-                [(ngModel)]="imgPath"
-            />
+            <label for="imgPath">Image Name: </label>
+            <!-- Validators -->
+            <div class="validators" *ngIf="racketForm.get('imgPath')?.invalid && racketForm.get('imgPath')?.touched">
+                <div *ngIf="racketForm.get('imgPath')?.errors?.['required']">Required.</div>
+            </div>
+            <input type="text" id="imgPath" formControlName="imgPath">
         </div>
+
+        <!-- Review -->
         <div class="form-control">
             <label for="text">Review: </label>
+            <!-- Validators -->
+            <div class="validators" *ngIf="racketForm.get('review')?.invalid && racketForm.get('review')?.touched">
+                <div *ngIf="racketForm.get('review')?.errors?.['required']">Required.</div>
+            </div>
             <textarea
                 type="text"
-                name="review"
                 id="review"
+                formControlName="review"
                 placeholder="ex. I love this racket!"
-                [(ngModel)]="review"
             ></textarea>
         </div>
-        <input type="submit" value="Save Racket">
+        
+        <!-- Submit button -->
+        <input type="submit" [disabled]="racketForm.invalid" value="Save">
+        <!-- <button type="submit" [disabled]="racketForm.invalid">Submit</button> -->
     </form>
 </div>

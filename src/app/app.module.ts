@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,7 +33,7 @@ import { SpecsComponent } from './components/specs/specs.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     RouterModule,
     HttpClientModule,
