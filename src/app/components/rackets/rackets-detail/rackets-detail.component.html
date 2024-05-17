@@ -1,6 +1,6 @@
 <div *ngIf="racket" class="rackets-detail">
     <h2>{{racket.name | uppercase}}</h2>
-    <img src="{{racket.imgPath}}" alt="">
+    <img src="{{ '../assets/racket-img/' + racket.imgPath}}" alt="">
 
     <div class="text-block">
         <div class="key">

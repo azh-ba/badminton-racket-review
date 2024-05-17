@@ -9,8 +9,10 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class RacketService {
-  private apiUrl = 'http://localhost:5000/rackets';
-  httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };                    
+  // private apiUrl = 'http://localhost:5000/rackets';
+  apiUrl = 'https://localhost:7203/racket';
+  httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+    .set('access-control-allow-origin', "https://localhost:7203/") };                    
                 
   constructor(private httpClient: HttpClient) { }
 
@@ -25,7 +27,7 @@ export class RacketService {
   }
 
   getRackets(): Observable<Racket[]> {
-    return this.httpClient.get<Racket[]>(this.apiUrl)
+    return this.httpClient.get<Racket[]>(this.apiUrl, this.httpOptions)
       .pipe(
         catchError(this.handleError<Racket[]>('getRackets', []))
       );

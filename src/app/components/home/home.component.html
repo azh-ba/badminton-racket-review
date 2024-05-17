@@ -4,7 +4,7 @@
     <div class="rackets-menu">
       <a *ngFor="let racket of rackets" routerLink="/detail/{{racket.id}}">
         {{racket.name}}
-        <img src="{{racket.imgPath}}" alt="">
+        <img src="{{ '../assets/racket-img/' + racket.imgPath}}" alt="">
       </a>
     </div>
   </div>
