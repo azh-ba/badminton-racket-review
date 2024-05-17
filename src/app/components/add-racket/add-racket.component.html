@@ -40,18 +40,18 @@
                 <div *ngIf="racketForm.get('length')?.errors?.['required']">Required.</div>
                 <div *ngIf="racketForm.get('length')?.errors?.['pattern']">Only accepts number.</div>
             </div>
-            <input type="text" id="length" formControlName="length">
+            <input type="text" id="length" formControlName="length" placeholder="(400 - 680 mm)">
         </div>
 
         <!-- Balance Point -->
         <div class="form-control">
-            <label for="balancePoint">Price: </label>
+            <label for="balancePoint">Balance Point: </label>
             <!-- Validators -->
             <div class="validators" *ngIf="racketForm.get('balancePoint')?.invalid && racketForm.get('balancePoint')?.touched">
                 <div *ngIf="racketForm.get('balancePoint')?.errors?.['required']">Required.</div>
                 <div *ngIf="racketForm.get('balancePoint')?.errors?.['pattern']">Only accepts number.</div>
             </div>
-            <input type="text" id="balancePoint" formControlName="balancePoint">
+            <input type="text" id="balancePoint" formControlName="balancePoint" placeholder="(250 - 350 mm)">
         </div>
 
         <!-- Shaft Flexibility -->
@@ -82,7 +82,7 @@
                 <div *ngIf="racketForm.get('tension')?.errors?.['required']">Required.</div>
                 <div *ngIf="racketForm.get('tension')?.errors?.['pattern']">Only accepts number.</div>
             </div>
-            <input type="text" id="tension" formControlName="tension">
+            <input type="text" id="tension" formControlName="tension" placeholder="(10 - 50 lbs)">
         </div>
 
         <!-- Image Path -->

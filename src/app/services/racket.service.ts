@@ -42,7 +42,7 @@ export class RacketService {
 
   addRacket(racket: Racket): Observable<Racket> {
     return this.httpClient.post<Racket>(this.apiUrl, racket, this.httpOptions).pipe(
-      tap(_ => {console.log('Im working')}),
+      tap( _ => {console.log('Im working')}),
       catchError(this.handleError<Racket>('addRacket'))
     );
   }
