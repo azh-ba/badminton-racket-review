@@ -1,0 +1,91 @@
+.rackets-edit {
+    width: 100%;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+.text-block {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+
+    width: max(30%, 300px);
+    
+    .key {
+        display: block;
+        width: 100%;
+        margin: 20px 0;
+
+        label {
+            display: inline-block;
+            margin-bottom: 10px;
+
+            font-weight: bold;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+
+            border: none;
+            border-bottom: 2px solid black;
+
+            font-size: 15px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    margin: auto;
+
+    border: 2px solid black;
+    border-radius: 5px;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.validators {
+    display: inline-block;
+    margin-left: 10px;
+    color: red;
+}
+
+.button-block {
+    display: block;
+    width: max(30%, 300px);
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    /* flex */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    
+    #save {
+        width: 100px;
+        height: 40px;
+
+        border-radius: 5px;
+
+        font-weight: bold;
+        background-color: lightgreen;
+
+        width: 200px;
+    }
+}
+
+#modified {
+    color: gray;
+}

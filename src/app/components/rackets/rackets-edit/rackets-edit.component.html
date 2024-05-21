@@ -1,0 +1,129 @@
+<div *ngIf="racketForm" class="rackets-edit">
+    <form [formGroup]="racketForm" (ngSubmit)="onSave()">
+        <h2>Edit Racket</h2>
+
+        <div class="text-block">
+            <!-- Name -->
+            <div class="key">
+                <label for="name">Name: </label>
+                <!-- Validators -->
+                <div class="validators" *ngIf="racketForm.get('name')?.invalid && racketForm.get('name')?.touched">
+                    <div *ngIf="racketForm.get('name')?.errors?.['required']">Required.</div>
+                </div>
+                <input type="text" id="name" formControlName="name" placeholder="ex. Arcsaber 11 Pro">
+            </div>
+
+            <!-- Brand -->
+            <div class="key">
+                <label for="brand">Brand: </label>
+                <!-- Validators -->
+                <div class="validators" *ngIf="racketForm.get('brand')?.invalid && racketForm.get('brand')?.touched">
+                    <div *ngIf="racketForm.get('brand')?.errors?.['required']">Required.</div>
+                </div>
+                <input type="text" id="brand" formControlName="brand" placeholder="ex. Yonex">
+            </div>
+
+            <!-- Price -->
+            <div class="key">
+                <label for="price">Price: ($) </label>
+                <!-- Validators -->
+                <div class="validators"*ngIf="racketForm.get('price')?.invalid && racketForm.get('price')?.touched">
+                    <div *ngIf="racketForm.get('price')?.errors?.['required']">Required.</div>
+                    <div *ngIf="racketForm.get('price')?.errors?.['pattern']">Only accepts decimal number.</div>
+                </div>
+                <input type="text" id="price" formControlName="price" placeholder="ex. 99.99">
+            </div>
+
+            <!-- Length -->
+            <div class="key">
+                <label for="length">Length: (mm) </label>
+                <!-- Validators -->
+                <div class="validators" *ngIf="racketForm.get('length')?.invalid && racketForm.get('length')?.touched">
+                    <div *ngIf="racketForm.get('length')?.errors?.['required']">Required.</div>
+                    <div *ngIf="racketForm.get('length')?.errors?.['pattern']">Only accepts number.</div>
+                </div>
+                <input type="text" id="length" formControlName="length" placeholder="(400 - 680 mm)">
+            </div>
+
+            <!-- Balance Point -->
+            <div class="key">
+                <label for="balancePoint">Balance Point: (mm) </label>
+                <!-- Validators -->
+                <div class="validators" *ngIf="racketForm.get('balancePoint')?.invalid && racketForm.get('balancePoint')?.touched">
+                    <div *ngIf="racketForm.get('balancePoint')?.errors?.['required']">Required.</div>
+                    <div *ngIf="racketForm.get('balancePoint')?.errors?.['pattern']">Only accepts number.</div>
+                </div>
+                <input type="text" id="balancePoint" formControlName="balancePoint" placeholder="(250 - 350 mm)">
+            </div>
+
+            <!-- Shaft Flex -->
+            <div class="key">
+                <label>Shaft Flexibility: </label>
+                <!-- Validators -->
+                <div class="validators" *ngIf="racketForm.get('shaftFlex')?.invalid && racketForm.get('shaftFlex')?.touched">
+                    <div *ngIf="racketForm.get('shaftFlex')?.errors?.['required']">Required.</div>
+                </div>
+                <input type="text" id="shaftFlex" formControlName="shaftFlex" placeholder="ex. Extra Stiff">
+            </div>
+
+            <!-- Weight -->
+            <div class="key">
+                <label>Weight: (U) </label>
+                <!-- Validators -->
+                <div class="validators" *ngIf="racketForm.get('weight')?.invalid && racketForm.get('weight')?.touched">
+                    <div *ngIf="racketForm.get('weight')?.errors?.['required']">Required.</div>
+                </div>
+                <input type="text" id="weight" formControlName="weight" placeholder="ex. 3U">
+            </div>
+
+            <!-- String Tension -->
+            <div class="key">
+                <label>String Tension: (LBS) </label>
+                <!-- Validators -->
+                <div class="validators" *ngIf="racketForm.get('tension')?.invalid && racketForm.get('tension')?.touched">
+                    <div *ngIf="racketForm.get('tension')?.errors?.['required']">Required.</div>
+                    <div *ngIf="racketForm.get('tension')?.errors?.['pattern']">Only accepts number.</div>
+                </div>
+                <input type="text" id="tension" formControlName="tension" placeholder="(10 - 50 lbs)">
+            </div>
+
+            <!-- Image Path -->
+            <div class="key">
+                <label for="imgPath">Image Name: </label>
+                <!-- Validators -->
+                <div class="validators" *ngIf="racketForm.get('imgPath')?.invalid && racketForm.get('imgPath')?.touched">
+                    <div *ngIf="racketForm.get('imgPath')?.errors?.['required']">Required.</div>
+                </div>
+                <input type="text" id="imgPath" formControlName="imgPath" placeholder="arcsaber-11-pro.webp">
+            </div>
+
+            <!-- Review -->
+            <div class="key">
+                <label for="review">Review: </label>
+                <!-- Validators -->
+                <div class="validators" *ngIf="racketForm.get('review')?.invalid && racketForm.get('review')?.touched">
+                    <div *ngIf="racketForm.get('review')?.errors?.['required']">Required.</div>
+                </div>
+                <textarea
+                    type="text"
+                    id="review"
+                    formControlName="review"
+                    placeholder="ex. I love this racket!"
+                    rows="5"
+                ></textarea>
+            </div>
+
+            <!-- Save Changes -->
+            <div class="button-block">
+                <button
+                    [disabled]="!racketForm.dirty"
+                    [style.background-color]="racketForm.dirty ? '' : 'gray'"
+                    id="save"
+                    type="button"
+                    (click)="onSave()"
+                >Save</button>
+            </div>
+            
+        </div>
+    </form>
+</div>
