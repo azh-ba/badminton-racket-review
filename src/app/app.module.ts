@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,6 +16,7 @@ import { RacketsSearchComponent } from './components/rackets/rackets-search/rack
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { RacketsListComponent } from './components/rackets/rackets-list/rackets-list.component';
 import { SpecsComponent } from './components/specs/specs.component';
+import { RacketsEditComponent } from './components/rackets/rackets-edit/rackets-edit.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SpecsComponent } from './components/specs/specs.component';
     RacketsSearchComponent,
     PageNotFoundComponent,
     RacketsListComponent,
-    SpecsComponent
+    SpecsComponent,
+    RacketsEditComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { SpecsComponent } from './components/specs/specs.component';
     AppRoutingModule,
     RouterModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
