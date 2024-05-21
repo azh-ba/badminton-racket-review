@@ -12,6 +12,8 @@ import { RacketService } from 'src/app/services/racket.service';
 })
 export class RacketsDetailComponent {
   rackets: Racket[] = [];
+  isEdit: boolean = false;
+  editType: string = "Edit";
 
   @Input() racket?: Racket;
 
@@ -46,5 +48,17 @@ export class RacketsDetailComponent {
     this.racketService.deleteRacket(racket.id).subscribe();
     alert("Delete Successfully!");
     this.goBack();
+  }
+
+  edit(): void {
+    this.isEdit = !this.isEdit;
+    this.editType = this.isEdit ? "Cancel" : "Edit";
+  }
+
+  save(racket: Racket): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.racketService.updateRacket(id, racket).subscribe();
+    alert('Changes applied successfully!');
+    this.location.back();
   }
 }

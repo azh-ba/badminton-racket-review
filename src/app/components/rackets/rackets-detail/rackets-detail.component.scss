@@ -1,6 +1,10 @@
 .rackets-detail {
-    width: 100%;
+    width: max(355px, 90%);
     margin: auto;
+    margin-top: 20px;
+
+    border: 2px solid black;
+    border-radius: 5px;
 }
 
 h2 {
@@ -49,6 +53,7 @@ img {
 section {
     display: block;
     margin: auto;
+    margin-bottom: 20px;
 }
 
 .button-block {
@@ -56,6 +61,7 @@ section {
     width: max(30%, 300px);
     margin: auto;
     margin-top: 20px;
+    margin-bottom: 20px;
 
     /* flex */
     display: flex;
@@ -75,7 +81,21 @@ section {
     background-color: lightcyan;
 }
 
+#edit {
+    font-weight: bold;
+    background-color: lightgreen;
+}
+
 #delete {
     font-weight: bold;
-    background-color: lightcoral;
+    background-color: #FF033E;
+
+    width: 200px;
+}
+
+#save {
+    font-weight: bold;
+    background-color: lightgreen;
+
+    width: 200px;
 }

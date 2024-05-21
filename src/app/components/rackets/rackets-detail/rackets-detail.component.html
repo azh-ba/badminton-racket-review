@@ -1,36 +1,69 @@
 <div *ngIf="racket" class="rackets-detail">
-    <h2>{{racket.name | uppercase}}</h2>
-    <img src="{{ '../assets/racket-img/' + racket.imgPath}}" alt="">
-
-    <div class="text-block">
-        <div class="key">
-            <h4>ID</h4>
-        </div> {{racket.id}}
-        <div class="key">
-            <h4>Price</h4>
-        </div> {{racket.price}} $
-        <div class="key">
-            <h4>Length</h4>
-        </div> {{racket.length}} mm
-        <div class="key">
-            <h4>Shaft Flexibility</h4>
-        </div> {{racket.shaftFlex}}
-        <div class="key">
-            <h4>Weight</h4>
-        </div> {{racket.weight}}
-        <div class="key">
-            <h4>String Tension</h4>
-        </div> {{racket.tension}} lbs
-    </div>
-
-    <div class="racket-review">
-        <section>
-            {{racket.review}}
-        </section>
-    </div>
 
     <div class="button-block">
         <button id="back" type="button" (click)="goBack()">Back</button>
-        <button id="delete" type="button" class="delete" (click)="delete(racket)">DELETE</button>
+        <button 
+            id="edit"
+            type="button"
+            (click)="edit()"
+            [style.background-color]="isEdit ? '#FF033E' : ''"
+        >{{editType}}</button>
     </div>
+
+    <div *ngIf="racket && isEdit">
+        <!-- Pass racket detail to child | Pass racket changes to parent -->
+        <app-rackets-edit
+            [racketEdit]="racket"       
+            (saveClick)="save($event)"
+        ></app-rackets-edit>
+    </div>
+    
+    <div *ngIf="!isEdit">
+        <h2>{{racket.name | uppercase}}</h2>
+        <img src="{{ '../assets/racket-img/' + racket.imgPath}}" alt="">
+        
+        <div class="text-block">
+            <div class="key">
+                <h4>ID</h4>
+            </div> {{racket.id}}
+            <div class="key">
+                <h4>Brand</h4>
+            </div> {{racket.brand}}
+            <div class="key">
+                <h4>Price</h4>
+            </div> {{racket.price}} $
+            <div class="key">
+                <h4>Length</h4>
+            </div> {{racket.length}} mm
+            <div class="key">
+                <h4>Balance Point</h4>
+            </div> {{racket.balancePoint}} mm
+            <div class="key">
+                <h4>Shaft Flexibility</h4>
+            </div> {{racket.shaftFlex}}
+            <div class="key">
+                <h4>Weight</h4>
+            </div> {{racket.weight}}
+            <div class="key">
+                <h4>String Tension</h4>
+            </div> {{racket.tension}} lbs
+        </div>
+    
+        <div class="racket-review">
+            <section>
+                {{racket.review}}
+            </section>
+        </div>
+
+        <div class="button-block">
+            <button 
+                id="delete"
+                type="button"
+                class="delete"
+                (click)="delete(racket)"
+                *ngIf="!isEdit"
+            >DELETE</button>
+        </div>
+    </div>
+
 </div>
