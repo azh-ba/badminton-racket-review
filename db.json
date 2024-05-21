@@ -10,7 +10,7 @@
       "shaftFlex": "Very Stiff",
       "weight": "3U",
       "tension": 29,
-      "imgPath": "../assets/racket-img/astrox-88d-pro-2024.webp",
+      "imgPath": "astrox-88d-pro-2024.webp",
       "review": "Haven't played with this lol"
     },
     {
@@ -23,20 +23,20 @@
       "shaftFlex": "Very Stiff",
       "weight": "3U",
       "tension": 29,
-      "imgPath": "../assets/racket-img/astrox-88s-pro-2024.webp",
+      "imgPath": "astrox-88s-pro-2024.webp",
       "review": "Haven't played with this lol"
     },
     {
       "id": 3,
       "name": "Astrox 6",
-      "brand": "Yonex",
+      "brand": "The 3rd Game",
       "price": 149.99,
       "length": 673,
       "balancePoint": 295,
       "shaftFlex": "Flex",
       "weight": "4U",
       "tension": 26,
-      "imgPath": "../assets/racket-img/astrox-6.webp",
+      "imgPath": "astrox-6.webp",
       "review": "My main racket from 2022. Not too head heavy, although it feels sluggish if your stamina is down. A bit slow when defending. Love to smash with it."
     },
     {
@@ -48,7 +48,7 @@
       "shaftFlex": "Very Stiff",
       "weight": "4U",
       "tension": 28,
-      "imgPath": "../assets/racket-img/nanoflare-1000z.webp",
+      "imgPath": "nanoflare-1000z.webp",
       "review": "Haven't played with this lol.",
       "id": 4
     },
@@ -61,7 +61,7 @@
       "shaftFlex": "Medium",
       "weight": "4U",
       "tension": 28,
-      "imgPath": "../assets/racket-img/nanoflare-800-play.webp",
+      "imgPath": "nanoflare-800-play.webp",
       "review": "Haven't played with this lol.",
       "id": 5
     },
@@ -74,7 +74,7 @@
       "shaftFlex": "Flex",
       "weight": "4U",
       "tension": 29,
-      "imgPath": "../assets/racket-img/axforce-cannon-white.webp",
+      "imgPath": "axforce-cannon-white.webp",
       "review": "Quite stiff. Absorption is not good. Fun to attack.",
       "id": 6
     },
@@ -87,7 +87,7 @@
       "shaftFlex": "Flex",
       "weight": "5U",
       "tension": 30,
-      "imgPath": "../assets/racket-img/pioneer-2900.webp",
+      "imgPath": "pioneer-2900.webp",
       "review": "My first ever racket. Head light. Mishit a lot at first, but fun for defend and drop shots.",
       "id": 7
     },
@@ -100,7 +100,7 @@
       "shaftFlex": "Medium",
       "weight": "4U",
       "tension": 28,
-      "imgPath": "../assets/racket-img/turbocharging-10b.webp",
+      "imgPath": "turbocharging-10b.webp",
       "review": "Very satisfying to swing. A well-rounded racket. Quite stiff.",
       "id": 8
     },
@@ -113,7 +113,7 @@
       "shaftFlex": "Stiff",
       "weight": "4U",
       "tension": 30,
-      "imgPath": "../assets/racket-img/turbocharging-01d.webp",
+      "imgPath": "turbocharging-01d.webp",
       "review": "Stiff, more fatigue to attack. Very good for drives, net play. Quite good for defend.",
       "id": 9
     },
@@ -126,7 +126,7 @@
       "shaftFlex": "Medium",
       "weight": "4U",
       "tension": 35,
-      "imgPath": "../assets/racket-img/tj-power-control.webp",
+      "imgPath": "tj-power-control.webp",
       "review": "Very good for drives, defend. Need to generate more power for attacking shots.",
       "id": 10
     },
@@ -139,7 +139,7 @@
       "shaftFlex": "Stiff",
       "weight": "3U",
       "tension": 32,
-      "imgPath": "../assets/racket-img/3d-calibar-900c.webp",
+      "imgPath": "3d-calibar-900c.webp",
       "review": "Very good for smashes. Feels so sluggish and fatigue with everything else.",
       "id": 11
     },
@@ -152,7 +152,7 @@
       "shaftFlex": "Medium",
       "weight": "4U",
       "tension": 30,
-      "imgPath": "../assets/racket-img/3d-calibar-300b.webp",
+      "imgPath": "3d-calibar-300b.webp",
       "review": "Surprisingly fast. Well-rounded racket with a touch for explosive play.",
       "id": 12
     }
