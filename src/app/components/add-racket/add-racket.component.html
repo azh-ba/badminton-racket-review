@@ -8,7 +8,7 @@
             <div class="validators" *ngIf="racketForm.get('name')?.invalid && racketForm.get('name')?.touched">
                 <div *ngIf="racketForm.get('name')?.errors?.['required']">Required.</div>
             </div>
-            <input type="text" id="name" formControlName="name">
+            <input type="text" id="name" formControlName="name" placeholder="ex. Arcsaber 11 Pro">
         </div>
         
         <!-- Brand -->
@@ -18,7 +18,7 @@
             <div class="validators" *ngIf="racketForm.get('brand')?.invalid && racketForm.get('brand')?.touched">
                 <div *ngIf="racketForm.get('brand')?.errors?.['required']">Required.</div>
             </div>
-            <input type="text" id="brand" formControlName="brand">
+            <input type="text" id="brand" formControlName="brand" placeholder="ex. Yonex">
         </div>
 
         <!-- Price -->
@@ -29,7 +29,7 @@
                 <div *ngIf="racketForm.get('price')?.errors?.['required']">Required.</div>
                 <div *ngIf="racketForm.get('price')?.errors?.['pattern']">Only accepts decimal number.</div>
             </div>
-            <input type="text" id="price" formControlName="price">
+            <input type="text" id="price" formControlName="price" placeholder="ex. 299.99">
         </div>
 
         <!-- Length -->
@@ -61,7 +61,7 @@
             <div class="validators" *ngIf="racketForm.get('shaftFlex')?.invalid && racketForm.get('shaftFlex')?.touched">
                 <div *ngIf="racketForm.get('shaftFlex')?.errors?.['required']">Required.</div>
             </div>
-            <input type="text" id="shaftFlex" formControlName="shaftFlex">
+            <input type="text" id="shaftFlex" formControlName="shaftFlex" placeholder="ex. Extra Stiff">
         </div>
 
         <!-- Weight -->
@@ -71,7 +71,7 @@
             <div class="validators" *ngIf="racketForm.get('weight')?.invalid && racketForm.get('weight')?.touched">
                 <div *ngIf="racketForm.get('weight')?.errors?.['required']">Required.</div>
             </div>
-            <input type="text" id="weight" formControlName="weight">
+            <input type="text" id="weight" formControlName="weight" placeholder="ex. 3U">
         </div>
 
         <!-- String Tension -->
@@ -92,7 +92,7 @@
             <div class="validators" *ngIf="racketForm.get('imgPath')?.invalid && racketForm.get('imgPath')?.touched">
                 <div *ngIf="racketForm.get('imgPath')?.errors?.['required']">Required.</div>
             </div>
-            <input type="text" id="imgPath" formControlName="imgPath">
+            <input type="text" id="imgPath" formControlName="imgPath" placeholder="ex. arcsaber-11-pro.webp">
         </div>
 
         <!-- Review -->

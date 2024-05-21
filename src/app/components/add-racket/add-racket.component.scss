@@ -1,6 +1,6 @@
 .border {
     min-width: 350px;
-    width: min(85%, 700px);
+    width: min(70%, 700px);
 
     display: block;
     margin: 20px auto;
@@ -39,13 +39,9 @@ input, textarea {
         background-color: lightgreen;
 
         &:disabled {
-            background-color: lightcoral;
+            background-color: grey;
         }
     }
-}
-
-button.ng-invalid {
-    background-color: lightcoral;
 }
 
 .add-form {
