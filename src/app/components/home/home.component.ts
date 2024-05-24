@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Racket } from 'src/app/racket';
 
 import { RacketService } from 'src/app/services/racket.service';
@@ -8,8 +8,8 @@ import { RacketService } from 'src/app/services/racket.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
-  rackets?: Racket[] = [];
+export class HomeComponent implements OnInit {
+  rackets: Racket[] = [];
 
   constructor(private racketService: RacketService) { }
 

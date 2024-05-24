@@ -1,13 +1,76 @@
 <div id="rackets-search">
-    <label for="search-box">Search Racket: </label>
-    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+    <div class="border">
+        <h2>Filter Section</h2>
 
-    <!-- <ul class="search-result">
-        <li *ngFor="let racket of filteredRacketsList">
-            <a routerLink="/detail/{{racket.id}}">
-                {{racket.name}}
-            </a>
-        </li>
-    </ul> -->
-    <app-rackets-list [rackets]="filteredRacketsList" [check]="isEmptyList"></app-rackets-list>
+        <!-- Name -->
+        <section>
+            <label for="name">Name: </label>
+            <input id="name" />
+        </section>
+
+        <!-- More filter options -->
+        <button class="advance-button" (click)="advance()">Advance options</button>
+
+        <div *ngIf="isAdvance">
+            <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+                <!-- Brand -->
+                <section>
+                    <label for="brand">Brand: </label>
+                    <ul *ngFor="let brand of brandsList">
+                        <li>
+                            <input
+                                type="checkbox"
+                                id="{{brand}}"
+                                [value]="brand"
+                                (change)="onCheckBrand($event)"
+                            ><label for="{{brand}}"> {{brand}}</label>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Shaft Flex -->
+                <section>
+                    <label for="shaftFlex">Shaft Flexibility: </label>
+                    <ul *ngFor="let shaftAttr of shaftFlexList">
+                        <li>
+                            <input
+                                type="checkbox"
+                                id="{{shaftAttr.shaftId}}"
+                                [value]="shaftAttr.shaftAttr"
+                                (change)="onCheckShaft($event)"
+                            ><label for="{{shaftAttr.shaftId}}"> {{shaftAttr.shaftAttr}}</label>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Sort / Descending -->
+                <section>
+                    <label for="sortBy">Sort By: </label>
+                    <ul id="sortBy" *ngFor="let sortAttr of sortByList">
+                        <li>
+                            <input
+                                type="radio"
+                                id="{{sortAttr.sortId}}"
+                                name="sortBy"
+                                [value]="sortAttr.sortAttr"
+                                (change)="onRadioSort($event)"
+                            ><label for="{{sortAttr.sortId}}"> {{sortAttr.sortAttr}}</label>
+                        </li>
+                    </ul>
+                    <input
+                        type="checkbox"
+                        id="descend"
+                        [value]="true"
+                        (change)="onCheckDescend($event)"
+                        name="descend"
+                    ><label for="descend"> Descend</label>
+                </section>
+
+                <!-- Submit -->
+                <button type="submit">Set</button>
+            </form>
+        </div>
+
+    </div>
+    <app-rackets-list [rackets]="filterRackets"></app-rackets-list>
 </div>

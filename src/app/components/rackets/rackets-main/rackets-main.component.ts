@@ -8,25 +8,7 @@ import { RacketService } from 'src/app/services/racket.service';
   styleUrls: ['./rackets-main.component.scss']
 })
 export class RacketsMainComponent {
-  rackets: Racket[] = [];
+  @Input() racketList: Racket[] = [];
 
   constructor(private racketService: RacketService) { }
-
-  ngOnInit(): void {
-    this.getRackets();
-  }
-
-  getRackets(): void {
-    this.racketService.getRackets()
-      .subscribe(rackets => this.rackets = rackets);
-  }
-
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.racketService.addRacket({name} as Racket)
-      .subscribe(racket => { 
-        this.rackets.push(racket);
-      });
-  }
 }

@@ -4,16 +4,17 @@ import { Racket } from '../racket';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RacketService {
-  private apiUrl = 'http://localhost:5000/rackets';
-  httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'})};
-  // apiUrl = 'https://localhost:7203/racket';
-  // httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'})
-  //   .set('access-control-allow-origin', "https://localhost:7203/") };                    
+  // private apiUrl = 'http://localhost:5000/rackets';
+  // httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'})};
+  apiUrl = 'https://localhost:7203/racket';
+  httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+    .set('access-control-allow-origin', "https://localhost:7203/") };                    
                 
   constructor(private httpClient: HttpClient) { }
 
@@ -32,6 +33,29 @@ export class RacketService {
       .pipe(
         catchError(this.handleError<Racket[]>('getRackets', []))
       );
+  }
+
+  getFilteredRackets(form: FormGroup): Observable<Racket[]> {
+    // Generate brand query string
+    let brand: string = '';
+    for (let i = 0; i < form.value.brand.length; i++) {
+      brand += `Brand=${form.value.brand[i]}&`;
+    }
+    // Generate shaft flex query string
+    let shaft: string = '';
+    for (let i = 0; i < form.value.shaftFlex.length; i++) {
+      shaft += `ShaftFlex=${form.value.shaftFlex[i]}&`;
+    }
+    // Generate sort by query string
+    let sort: string = 'SortBy=' + form.value.sortBy;
+    // Generate descending query string
+    let descend: string = 'IsDescending=' + form.value.isDecsending;
+
+    const url = `${this.apiUrl}?` + brand + shaft + sort + '&' + descend;
+    return this.httpClient.get<Racket[]>(url).pipe(
+      tap( _ => {console.log("filter search is working!")}),
+      catchError(this.handleError<Racket[]>('getRacket', []))
+    );
   }
 
   getRacket(id: number): Observable<Racket> {
@@ -60,6 +84,13 @@ export class RacketService {
     const url = `${this.apiUrl}/${id}`;
     return this.httpClient.delete<Racket>(url, this.httpOptions).pipe(
       catchError(this.handleError<Racket>('deleteRacket'))
+    );
+  }
+
+  getBrands(): Observable<String[]> {
+    const url = `${this.apiUrl}/brands`;
+    return this.httpClient.get<String[]>(url, this.httpOptions).pipe(
+      catchError(this.handleError<String[]>('getBrands', []))
     );
   }
 

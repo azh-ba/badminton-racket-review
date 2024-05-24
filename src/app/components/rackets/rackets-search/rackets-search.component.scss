@@ -1,8 +1,33 @@
+.border {
+    min-width: 350px;
+    width: min(70%, 700px);
+
+    display: block;
+    margin: 20px auto;
+
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+h2 {
+    text-align: center;
+
+    margin: 20px 0;
+}
+
+section {
+    margin-left: 10px;
+}
+
 label {
     font-weight: bold;
 }
 
-input {
+li {
+    list-style: none;
+}
+
+#name {
     font-size: 17px;
 
     width: max(50%, 300px);

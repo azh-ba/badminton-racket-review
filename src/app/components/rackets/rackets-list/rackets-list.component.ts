@@ -9,17 +9,9 @@ import { RacketService } from 'src/app/services/racket.service';
   styleUrls: ['./rackets-list.component.scss']
 })
 export class RacketsListComponent implements OnInit {
-  racket!: Racket;
-
-  fullRacketList: Racket[] = [];
-
   @Input() rackets!: Racket[];
-  @Input() check!: boolean;
 
   constructor(private racketService: RacketService) { }
 
-  ngOnInit(): void {
-    this.racketService.getRackets()
-      .subscribe((rackets: Racket[]) => this.fullRacketList = rackets);
-  }
+  ngOnInit(): void { }
 }
