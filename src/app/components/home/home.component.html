@@ -1,4 +1,12 @@
-<div class="home-main">
+<app-errors *ngIf="error" class="error" [error]="error" [componentName]="componentName"></app-errors>
+
+<!-- Error -->
+<div class="home-err" *ngIf="error">
+  <h2>Oops! Something is wrong...</h2>
+</div>
+
+<!-- Loaded database -->
+<div class="home-main" *ngIf="rackets">
   <h2>Welcome! Here are some quick reviews:</h2>
   <div class="home">
     <div class="rackets-menu">

@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
+import { tap, catchError, of } from 'rxjs';
+
 import { RacketService } from 'src/app/services/racket.service';
 import { Racket } from 'src/app/racket';
 
@@ -12,16 +14,23 @@ import { Racket } from 'src/app/racket';
 export class RacketsSearchComponent implements OnInit {
 
   constructor(private racketService: RacketService) { }
+  // Error info
+  error: Error | null = null;
+  componentName: string = 'racket-seach';
 
   // Get a full list of rackets
   ngOnInit(): void {
     this.getFullRackets();
-    
+  
     this.getBrands();
   }
 
   getFullRackets(): void {
     this.racketService.getRackets()
+      .pipe(
+        tap({error: (error) => {this.error = error}}),
+        catchError(err => of([]))
+      )
       .subscribe(rackets => this.filterRackets = rackets);
   }
   
@@ -33,6 +42,10 @@ export class RacketsSearchComponent implements OnInit {
 
   getBrands(): void {
     this.racketService.getBrands()
+      .pipe(
+        tap({error: (error) => {this.error = error}}),
+        catchError(err => of([]))
+      )
       .subscribe((b: String[]) => this.brandsList = b);
   }
 
@@ -41,26 +54,38 @@ export class RacketsSearchComponent implements OnInit {
   advanceButton: string = "Sort";
 
   advance(): void {
-    this.isAdvance = !this.isAdvance;
-    this.advanceButton = this.isAdvance ? "Cancel" : "Sort";
+    try {
+      this.isAdvance = !this.isAdvance;
+      this.advanceButton = this.isAdvance ? "Cancel" : "Sort";
+    } catch (error) {
+      if (error instanceof Error) {
+        this.error = error;
+      }
+    }
 
     this.filterForm = new FormGroup({
       brand: new FormArray([]),
       shaftFlex: new FormArray([]),
-      sortBy: new FormControl(''),
-      isDecsending: new FormControl(false),
+      sortBy: new FormControl('None'),
+      isDescending: new FormControl(true),
     });
   }
 
   // Brand checkbox
   onCheckBrand(event: any): void {
-    const brand: FormArray = this.filterForm.get('brand') as FormArray;
-
-    if (event.target.checked) {
-      brand.push(new FormControl(event.target.value));
-    } else {
-      const index = brand.controls.findIndex(b => b === event.target.value);
-      brand.removeAt(index);
+    try {
+      const brand: FormArray = this.filterForm.get('brand') as FormArray;
+  
+      if (event.target.checked) {
+        brand.push(new FormControl(event.target.value));
+      } else {
+        const index = brand.controls.findIndex(b => b === event.target.value);
+        brand.removeAt(index);
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        this.error = error;
+      }
     }
   }
 
@@ -74,57 +99,89 @@ export class RacketsSearchComponent implements OnInit {
   ];
 
   onCheckShaft(event: any): void {
-    const shaftFlex: FormArray = this.filterForm.get('shaftFlex') as FormArray;
-
-    if (event.target.checked) {
-      shaftFlex.push(new FormControl(event.target.value));
-    } else {
-      const index = shaftFlex.controls.findIndex(s => s === event.target.value);
-      shaftFlex.removeAt(index);
+    try {
+      const shaftFlex: FormArray = this.filterForm.get('shaftFlex') as FormArray;
+  
+      if (event.target.checked) {
+        shaftFlex.push(new FormControl(event.target.value));
+      } else {
+        const index = shaftFlex.controls.findIndex(s => s === event.target.value);
+        shaftFlex.removeAt(index);
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        this.error = error;
+      }
     }
   }
 
   // Sort By radio
   sortByList = [
-    {sortId: 0, sortAttr: "None"},
-    {sortId: 6, sortAttr: "Price"},
-    {sortId: 7, sortAttr: "Length"},
-    {sortId: 8, sortAttr: "Balance Point"},
-    {sortId: 9, sortAttr: "String Tension"},
+    {sortId: 0, sortVal: "None", sortAttr: "None"},
+    {sortId: 6, sortVal: "Price", sortAttr: "Price"},
+    {sortId: 7, sortVal: "Length", sortAttr: "Length"},
+    {sortId: 8, sortVal: "BalancePoint", sortAttr: "Balance Point"},
+    {sortId: 9, sortVal: "Tension", sortAttr: "String Tension"},
   ];
 
   onRadioSort(event: any): void {
-    const sortBy: FormControl = this.filterForm.get('sortBy') as FormControl;
-
-    if (event.target.checked) {
-      if (event.target.value !== "None") {
-        sortBy.setValue(event.target.value);
-      } else {
-        sortBy.setValue('');
+    try {
+      const sortBy: FormControl = this.filterForm.get('sortBy') as FormControl;
+  
+      if (event.target.checked) {
+        if (event.target.value !== "None") {
+          sortBy.setValue(event.target.value);
+        } else {
+          sortBy.setValue('None');
+        }
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        this.error = error;
       }
     }
   }
 
-  // Decsend option
-  descendListen: boolean = false;
+  // Descend option
   onCheckDescend(event: any): void {
-    this.descendListen = !this.descendListen;
+    try {
+      const isDescending: FormControl = this.filterForm.get('isDescending') as FormControl;
+  
+      if (event.target.checked) {
+        isDescending.setValue(true);
+      } else {
+        isDescending.setValue(false);
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        this.error = error;
+      }
+    }
+  }
+
+  sortIsNone(): boolean {
+    return this.filterForm.getRawValue().sortBy === 'None';
   }
 
   // Submit filter options to API
   @Output() toRacketMain: EventEmitter<Racket[]> = new EventEmitter();
   filterRackets: Racket[] = [];
   onSubmit(): void {
-    this.getFilteredRackets();
+      this.getFilteredRackets();
   }
 
   getFilteredRackets(): void {
-    this.racketService.getFilteredRackets(this.filterForm).subscribe({
-      next: (rackets) => {
-        this.filterRackets = rackets;
-        this.toRacketMain.emit(this.filterRackets);
-        console.log(this.filterRackets);
-      }
+    this.racketService.getFilteredRackets(this.filterForm)
+      .pipe(
+        tap({error: (error) => {this.error = error}}),
+        catchError(err => of([]))
+      )
+      .subscribe({
+        next: (rackets) => {
+          console.log(rackets);
+          this.filterRackets = rackets;
+          this.toRacketMain.emit(this.filterRackets);
+        }
     });
   }
 }

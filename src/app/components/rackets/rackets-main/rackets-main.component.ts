@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Racket } from 'src/app/racket';
-import { RacketService } from 'src/app/services/racket.service';  
 
 @Component({
   selector: 'app-rackets-main',
@@ -10,5 +9,5 @@ import { RacketService } from 'src/app/services/racket.service';
 export class RacketsMainComponent {
   @Input() racketList: Racket[] = [];
 
-  constructor(private racketService: RacketService) { }
+  constructor() { }
 }

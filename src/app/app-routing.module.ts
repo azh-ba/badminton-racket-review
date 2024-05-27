@@ -14,8 +14,8 @@ import { SpecsComponent } from './components/specs/specs.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'rackets', component: RacketsMainComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'rackets', component: RacketsMainComponent },
   { path: 'detail/:id', component: RacketsDetailComponent },
   { path: 'add', component: AddRacketComponent },
   { path: 'about', component: AboutComponent },

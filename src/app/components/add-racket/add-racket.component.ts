@@ -10,6 +10,9 @@ import { RacketService } from 'src/app/services/racket.service';
   styleUrls: ['./add-racket.component.scss']
 })
 export class AddRacketComponent implements OnInit {
+  error: Error | null = null;
+  componentName: string = 'add-racket';
+
   racketForm!: FormGroup;
 
   constructor(private racketService: RacketService) { }
@@ -61,27 +64,33 @@ export class AddRacketComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.racketForm.valid) {
-      let racket: Racket = {
-        name: this.racketForm.value.name,
-        brand: this.racketForm.value.brand,
-        price: Number(this.racketForm.value.price),
-        length: Number(this.racketForm.value.length),
-        balancePoint: Number(this.racketForm.value.balancePoint),
-        shaftFlex: this.racketForm.value.shaftFlex,
-        weight: this.racketForm.value.weight,
-        tension: Number(this.racketForm.value.tension),
-        imgPath: this.racketForm.value.imgPath,
-        review: this.racketForm.value.review,
-      };
-
-      console.log(racket);
-
-      this.racketService.addRacket(racket).subscribe();
-
-      alert('Successfully added!');
-
-      this.racketForm.reset();
+    try {
+      if (this.racketForm.valid) {
+        let racket: Racket = {
+          name: this.racketForm.value.name,
+          brand: this.racketForm.value.brand,
+          price: Number(this.racketForm.value.price),
+          length: Number(this.racketForm.value.length),
+          balancePoint: Number(this.racketForm.value.balancePoint),
+          shaftFlex: this.racketForm.value.shaftFlex,
+          weight: this.racketForm.value.weight,
+          tension: Number(this.racketForm.value.tension),
+          imgPath: this.racketForm.value.imgPath,
+          review: this.racketForm.value.review,
+        };
+  
+        console.log(racket);
+  
+        this.racketService.addRacket(racket).subscribe();
+  
+        alert('Successfully added!');
+  
+        this.racketForm.reset();
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        this.error = error;
+      }
     }
   }
 }

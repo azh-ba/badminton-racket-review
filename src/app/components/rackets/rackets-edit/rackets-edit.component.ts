@@ -9,6 +9,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./rackets-edit.component.scss']
 })
 export class RacketsEditComponent implements OnInit {
+  error: Error | null = null;
+  componentName: string = 'rackets-edit';
+
   @Input() racketEdit!: Racket;
 
   @Output() saveClick: EventEmitter<Racket> = new EventEmitter();
@@ -33,19 +36,25 @@ export class RacketsEditComponent implements OnInit {
   }
 
   onSave(): void {
-    let editRacket: Racket = {
-      name: this.racketForm.value.name,
-      brand: this.racketForm.value.brand,
-      price: this.racketForm.value.price,
-      length: this.racketForm.value.length,
-      balancePoint: this.racketForm.value.balancePoint,
-      shaftFlex: this.racketForm.value.shaftFlex,
-      weight: this.racketForm.value.weight,
-      tension: this.racketForm.value.tension,
-      imgPath: this.racketForm.value.imgPath,
-      review: this.racketForm.value.review
-    };
-
-    this.saveClick.emit(editRacket);
+    try {
+      let editRacket: Racket = {
+        name: this.racketForm.value.name,
+        brand: this.racketForm.value.brand,
+        price: this.racketForm.value.price,
+        length: this.racketForm.value.length,
+        balancePoint: this.racketForm.value.balancePoint,
+        shaftFlex: this.racketForm.value.shaftFlex,
+        weight: this.racketForm.value.weight,
+        tension: this.racketForm.value.tension,
+        imgPath: this.racketForm.value.imgPath,
+        review: this.racketForm.value.review
+      };
+  
+      this.saveClick.emit(editRacket);
+    } catch (error) {
+      if (error instanceof Error) {
+        this.error = error;
+      }
+    }
   }
 }

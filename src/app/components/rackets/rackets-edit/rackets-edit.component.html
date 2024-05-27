@@ -1,3 +1,4 @@
+<app-errors *ngIf="error" class="error" [error]="error" [componentName]="componentName"></app-errors>
 <div *ngIf="racketForm" class="rackets-edit">
     <form [formGroup]="racketForm" (ngSubmit)="onSave()">
         <h2>Edit Racket</h2>

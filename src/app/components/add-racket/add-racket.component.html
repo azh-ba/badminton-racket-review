@@ -1,3 +1,4 @@
+<app-errors *ngIf="error" class="error" [error]="error" [componentName]="componentName"></app-errors>
 <div class="border">
     <h2>Add a Racket</h2>
     <form class="add-form" [formGroup]="racketForm" (ngSubmit)="onSubmit()">

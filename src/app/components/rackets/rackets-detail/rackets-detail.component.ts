@@ -11,6 +11,9 @@ import { RacketService } from 'src/app/services/racket.service';
   styleUrls: ['./rackets-detail.component.scss']
 })
 export class RacketsDetailComponent {
+  error: Error | null = null;
+  componentName: string = 'rackets-detail';
+
   rackets: Racket[] = [];
   isEdit: boolean = false;
   editType: string = "Edit";
@@ -24,41 +27,83 @@ export class RacketsDetailComponent {
   ) { }
 
   ngOnInit(): void {
-    this.getRacket();
-    this.getRackets();
+    try {
+      this.getRacket();
+      this.getRackets();
+    } catch (error) {
+      if (error instanceof Error) {
+        this.error = error;
+      }
+    }
   }
 
   getRackets(): void {
-    this.racketService.getRackets()
-      .subscribe((rackets: Racket[]) => this.rackets = rackets);
+    try {
+      this.racketService.getRackets()
+        .subscribe((rackets: Racket[]) => this.rackets = rackets);
+    } catch (error) {
+      if (error instanceof Error) {
+        this.error = error;
+      }
+    }
   }
 
   getRacket(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.racketService.getRacket(id)
-      .subscribe(racket => this.racket = racket);
+    try {
+      const id = Number(this.route.snapshot.paramMap.get('id'));
+      this.racketService.getRacket(id)
+        .subscribe(racket => this.racket = racket);
+    } catch (error) {
+      if (error instanceof Error) {
+        this.error = error;
+      }
+    }
   }
 
   goBack(): void {
-    this.location.back();
+    try {
+      this.location.back();
+    } catch (error) {
+      if (error instanceof Error) {
+        this.error = error;
+      }
+    }
   }
 
   delete(racket: Racket): void {
-    this.rackets = this.rackets.filter(r => r !== racket);
-    this.racketService.deleteRacket(racket.id).subscribe();
-    alert("Delete Successfully!");
-    this.goBack();
+    try {
+      this.rackets = this.rackets.filter(r => r !== racket);
+      this.racketService.deleteRacket(racket.id).subscribe();
+      alert("Delete Successfully!");
+      this.goBack();
+    } catch (error) {
+      if (error instanceof Error) {
+        this.error = error;
+      }
+    }
   }
 
   edit(): void {
-    this.isEdit = !this.isEdit;
-    this.editType = this.isEdit ? "Cancel" : "Edit";
+    try {
+      this.isEdit = !this.isEdit;
+      this.editType = this.isEdit ? "Cancel" : "Edit";
+    } catch (error) {
+      if (error instanceof Error) {
+        this.error = error;
+      }
+    }
   }
 
   save(racket: Racket): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.racketService.updateRacket(id, racket).subscribe();
-    alert('Changes applied successfully!');
-    this.location.back();
+    try {
+      const id = Number(this.route.snapshot.paramMap.get('id'));
+      this.racketService.updateRacket(id, racket).subscribe();
+      alert('Changes applied successfully!');
+      this.location.back();
+    } catch (error) {
+      if (error instanceof Error) {
+        this.error = error;
+      }
+    }
   }
 }

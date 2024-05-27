@@ -1,3 +1,4 @@
+<app-errors *ngIf="error" class="error" [error]="error" [componentName]="componentName"></app-errors>
 <div id="rackets-search">
     <div class="border">
         <h2>Filter Section</h2>
@@ -15,7 +16,8 @@
             <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
                 <!-- Brand -->
                 <section>
-                    <label for="brand">Brand: </label>
+                    <label *ngIf="filterRackets.length === 0">(No brand to show)</label>
+                    <label *ngIf="filterRackets.length !== 0" for="brand">Brand: </label>
                     <ul *ngFor="let brand of brandsList">
                         <li>
                             <input
@@ -46,23 +48,25 @@
                 <!-- Sort / Descending -->
                 <section>
                     <label for="sortBy">Sort By: </label>
-                    <ul id="sortBy" *ngFor="let sortAttr of sortByList">
+                    <ul id="sortBy" *ngFor="let sortItem of sortByList">
                         <li>
                             <input
                                 type="radio"
-                                id="{{sortAttr.sortId}}"
+                                id="{{sortItem.sortId}}"
                                 name="sortBy"
-                                [value]="sortAttr.sortAttr"
+                                [value]="sortItem.sortVal"
                                 (change)="onRadioSort($event)"
-                            ><label for="{{sortAttr.sortId}}"> {{sortAttr.sortAttr}}</label>
+                                [checked]="sortItem.sortId === 0"
+                            ><label for="{{sortItem.sortId}}"> {{sortItem.sortAttr}}</label>
                         </li>
                     </ul>
                     <input
                         type="checkbox"
                         id="descend"
-                        [value]="true"
-                        (change)="onCheckDescend($event)"
                         name="descend"
+                        (change)="onCheckDescend($event)"
+                        [disabled]="sortIsNone()"
+                        checked
                     ><label for="descend"> Descend</label>
                 </section>
 
