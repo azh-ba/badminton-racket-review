@@ -6,22 +6,22 @@ h2 {
 }
 
 .home-err {
-    display: block;
-    margin: auto;
-    margin-top: 20px;
+    // display: block;
+    // margin: auto;
+    // margin-top: 20px;
 
-    width: max(80%, 355px);
+    // width: max(80%, 355px);
 }
 
 .home-main {
+    min-width: 350px;
+    width: min(70%, 700px);
+
     display: block;
-    margin: auto;
-    margin-top: 20px;
+    margin: 20px auto;
 
-    width: max(80%, 355px);
-
-    border: 2px solid black;
-    border-radius: 5px;
+    // border: 2px solid black;
+    // border-radius: 5px;
 }
 
 .home {

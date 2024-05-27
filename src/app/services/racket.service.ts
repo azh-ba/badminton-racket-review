@@ -33,7 +33,7 @@ export class RacketService {
   //     return of(result as T);
   //   }
   // }
-  private handleError<T>(operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', message?: string, result?: T) {
     return (error: any): Observable<T> => {
       // Log info
       console.info('Error handled by Racket Service.');
@@ -46,15 +46,16 @@ export class RacketService {
 
       // Throw error to the component
       return throwError(() => {
-        return new Error(operation + ' couldn\'t load data.');
+        return new Error(operation + message);
       })
     }
   }
 
   getRackets(): Observable<Racket[]> {
+    let messageErr: string = ' could\'t load data.';
     return this.httpClient.get<Racket[]>(this.apiUrl, this.httpOptions)
       .pipe(
-        catchError(this.handleError<Racket[]>('getRackets', []))
+        catchError(this.handleError<Racket[]>('getRackets', messageErr,[]))
         // catchError(() => {
         //   console.info('Error handled by Racket Service.');
         //   return throwError(() => {
@@ -65,13 +66,16 @@ export class RacketService {
   }
 
   getBrands(): Observable<String[]> {
+    let messageErr: string = ' could\'t load data.';
     const url = `${this.apiUrl}/brands`;
     return this.httpClient.get<String[]>(url, this.httpOptions).pipe(
-      catchError(this.handleError<String[]>('getBrands', []))
+      catchError(this.handleError<String[]>('getBrands', messageErr, []))
     );
   }
 
   getFilteredRackets(form: FormGroup): Observable<Racket[]> {
+    let messageErr: string = ' could\'t load data.';
+
     // Generate brand query string
     let brand: string = '';
     for (let i = 0; i < form.value.brand.length; i++) {
@@ -99,35 +103,38 @@ export class RacketService {
     }
     
     return this.httpClient.get<Racket[]>(url).pipe(
-      catchError(this.handleError<Racket[]>('getRacket', []))
+      catchError(this.handleError<Racket[]>('getRacket', messageErr, []))
     );
   }
 
   getRacket(id: number): Observable<Racket> {
+    let messageErr: string = ' could\'t load data.';
     const url = `${this.apiUrl}/${id}`;
     return this.httpClient.get<Racket>(url).pipe(
-      catchError(this.handleError<Racket>(`getRacket id=${id}`))
+      catchError(this.handleError<Racket>(`getRacket id=${id}`, messageErr))
     );
   }
 
   addRacket(racket: Racket): Observable<Racket> {
+    let messageErr: string = ' could\'t upload data.';
     return this.httpClient.post<Racket>(this.apiUrl, racket, this.httpOptions).pipe(
-      tap( _ => {console.log('Im working')}),
-      catchError(this.handleError<Racket>('addRacket'))
+      catchError(this.handleError<Racket>('addRacket', messageErr))
     );
   }
 
   updateRacket(id: number, racket: Racket): Observable<Racket> {
+    let messageErr: string = ' could\'t upload data.';
     const url = `${this.apiUrl}/${id}`;
     return this.httpClient.put<Racket>(url, racket, this.httpOptions).pipe(
-      catchError(this.handleError<Racket>('updateRacket')),
+      catchError(this.handleError<Racket>('updateRacket', messageErr)),
     );
   }
 
   deleteRacket(id?: number): Observable<Racket> {
+    let messageErr: string = ' could\'t delete data.';
     const url = `${this.apiUrl}/${id}`;
     return this.httpClient.delete<Racket>(url, this.httpOptions).pipe(
-      catchError(this.handleError<Racket>('deleteRacket'))
+      catchError(this.handleError<Racket>('deleteRacket', messageErr))
     );
   }
 }

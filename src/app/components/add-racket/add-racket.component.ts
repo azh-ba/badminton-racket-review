@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Racket } from 'src/app/racket';
 
 import { RacketService } from 'src/app/services/racket.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { tap, of, catchError } from 'rxjs';
 
 @Component({
   selector: 'app-add-racket',
@@ -10,12 +12,16 @@ import { RacketService } from 'src/app/services/racket.service';
   styleUrls: ['./add-racket.component.scss']
 })
 export class AddRacketComponent implements OnInit {
+  // Error Info
   error: Error | null = null;
   componentName: string = 'add-racket';
 
   racketForm!: FormGroup;
 
-  constructor(private racketService: RacketService) { }
+  constructor(
+    private racketService: RacketService,
+    private snackbar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
     this.racketForm = new FormGroup({
@@ -64,7 +70,6 @@ export class AddRacketComponent implements OnInit {
   }
 
   onSubmit(): void {
-    try {
       if (this.racketForm.valid) {
         let racket: Racket = {
           name: this.racketForm.value.name,
@@ -78,19 +83,29 @@ export class AddRacketComponent implements OnInit {
           imgPath: this.racketForm.value.imgPath,
           review: this.racketForm.value.review,
         };
-  
-        console.log(racket);
-  
-        this.racketService.addRacket(racket).subscribe();
-  
-        alert('Successfully added!');
-  
-        this.racketForm.reset();
+
+        this.addRacket(racket, this.success);
       }
-    } catch (error) {
-      if (error instanceof Error) {
-        this.error = error;
+  }
+
+  addRacket(racket: Racket, callbackSuccess: any): void {
+    this.racketService.addRacket(racket)
+    .pipe(
+      tap({error: (error) => {this.error = error}}),
+      catchError(err => of([]))
+    )
+    .subscribe();
+    callbackSuccess();
+  }
+
+  success(): void {
+    this.snackbar.open(
+      'Successfully added!',
+      'Close',
+      {
+        duration: 5000,
       }
-    }
+    );
+    this.racketForm.reset();
   }
 }

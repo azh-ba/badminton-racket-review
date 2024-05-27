@@ -1,19 +1,20 @@
-<app-errors *ngIf="error" class="error" [error]="error" [componentName]="componentName"></app-errors>
-
 <!-- Error -->
 <div class="home-err" *ngIf="error">
+  <app-errors *ngIf="error" class="error" [error]="error" [componentName]="componentName"></app-errors>
   <h2>Oops! Something is wrong...</h2>
 </div>
 
-<!-- Loaded database -->
-<div class="home-main" *ngIf="rackets">
-  <h2>Welcome! Here are some quick reviews:</h2>
-  <div class="home">
-    <div class="rackets-menu">
-      <a *ngFor="let racket of rackets" routerLink="/detail/{{racket.id}}">
-        {{racket.name}}
-        <img src="{{ '../assets/racket-img/' + racket.imgPath}}" alt="">
-      </a>
+<div class="home-main">
+  <!-- Loaded database -->
+  <div *ngIf="rackets && !error">
+    <h2>Welcome To Badminton Racket Review!</h2>
+    <div class="home">
+      <div class="rackets-menu">
+        <a *ngFor="let racket of rackets" routerLink="/detail/{{racket.id}}">
+          {{racket.name}}
+          <img src="{{ '../assets/racket-img/' + racket.imgPath}}" alt="">
+        </a>
+      </div>
     </div>
   </div>
 </div>

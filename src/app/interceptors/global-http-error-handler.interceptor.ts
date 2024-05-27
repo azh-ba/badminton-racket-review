@@ -15,9 +15,9 @@ export class GlobalHttpErrorHandlerInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       retry({
-        count: 1,
+        count: 0,
         // delay: (_, retryCount) => timer(retryCount * 500),
-        delay: 1000,
+        delay: 500,
       }),
       catchError(error => {
         return throwError(() => {
