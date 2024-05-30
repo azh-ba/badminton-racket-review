@@ -52,11 +52,13 @@ export class RacketsSearchComponent implements OnInit {
   // Display advance options
   isAdvance: boolean = false;
   advanceButton: string = "Sort";
+  advanceName: string = 'Advance';
 
   advance(): void {
     try {
       this.isAdvance = !this.isAdvance;
       this.advanceButton = this.isAdvance ? "Cancel" : "Sort";
+      this.advanceName = this.isAdvance ? 'Close' : 'Advance';
     } catch (error) {
       if (error instanceof Error) {
         this.error = error;

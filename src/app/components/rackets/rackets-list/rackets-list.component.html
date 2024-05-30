@@ -1,5 +1,6 @@
-<div>
+<div class="list">
     <ul class="rackets-list">
+        <h3 *ngIf="!error"> {{ rackets.length }} rackets found.</h3>
         <li *ngFor="let racket of rackets">
             <button class="rackets-list-item">
                 <a routerLink="/detail/{{racket.id}}">
@@ -7,8 +8,8 @@
                 </a>
             </button>
         </li>
-        <li *ngIf="rackets.length === 0">
+        <h3 *ngIf="error">
             No rackets to show...
-        </li>
+        </h3>
     </ul>
 </div>

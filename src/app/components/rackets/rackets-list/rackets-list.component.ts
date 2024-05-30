@@ -11,5 +11,7 @@ import { RacketService } from 'src/app/services/racket.service';
 export class RacketsListComponent {
   @Input() rackets!: Racket[];
 
+  @Input() error?: Error | null = null;
+
   constructor() { }
 }

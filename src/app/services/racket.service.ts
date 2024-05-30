@@ -24,15 +24,6 @@ export class RacketService {
   ) { }
 
   // Generic error handler
-  // private handleError<T>(operation = 'operation', result?: T) {
-  //   return (error: any): Observable<T> => {
-  //     // Send error to custom error handler for rendering
-  //     this.customError.handleError(error);
-
-  //     // Let the app keep running by returning an empty result
-  //     return of(result as T);
-  //   }
-  // }
   private handleError<T>(operation = 'operation', message?: string, result?: T) {
     return (error: any): Observable<T> => {
       // Log info

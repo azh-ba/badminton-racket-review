@@ -5,12 +5,16 @@
 
         <!-- Name -->
         <section>
-            <label for="name">Name: </label>
+            <label for="name">Search by name: </label>
             <input id="name" />
         </section>
 
         <!-- More filter options -->
-        <button class="advance-button" (click)="advance()">Advance options</button>
+        <button 
+            class="advance-button"
+            (click)="advance()"
+            [style.background-color]="isAdvance ? '#FF033E' : ''"
+        >{{ advanceName }}</button>
 
         <div *ngIf="isAdvance">
             <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
@@ -76,5 +80,11 @@
         </div>
 
     </div>
-    <app-rackets-list [rackets]="filterRackets"></app-rackets-list>
+
+    <div class="list">
+        <app-rackets-list 
+            [rackets]="filterRackets"
+            [error]="error"
+        ></app-rackets-list>
+    </div>
 </div>
