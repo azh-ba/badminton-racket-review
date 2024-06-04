@@ -6,20 +6,27 @@
         <!-- Name -->
         <section>
             <label for="name">Search by name: </label>
-            <input id="name" />
+            <input id="name" [(ngModel)]="nameSearch" />
         </section>
 
-        <!-- More filter options -->
-        <button 
-            class="advance-button"
-            (click)="advance()"
-            [style.background-color]="isAdvance ? '#FF033E' : ''"
-        >{{ advanceName }}</button>
+        <div class="btn">
+            <button 
+                *ngIf="!isAdvance"
+                class="search-button"
+                (click)="search()"
+            >Search</button>       
+            <button 
+                class="advance-button"
+                (click)="advance()"
+                [style.background-color]="isAdvance ? '#FF033E' : ''"
+            >{{ advanceName }}</button>
+        </div>
 
+         <!-- More filter options -->
         <div *ngIf="isAdvance">
             <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
                 <!-- Brand -->
-                <section>
+                <section class="section-brand">
                     <label *ngIf="filterRackets.length === 0">(No brand to show)</label>
                     <label *ngIf="filterRackets.length !== 0" for="brand">Brand: </label>
                     <ul *ngFor="let brand of brandsList">
@@ -75,7 +82,10 @@
                 </section>
 
                 <!-- Submit -->
-                <button type="submit">Set</button>
+                <button 
+                    class="submit-button"
+                    type="submit"
+                >Set</button>
             </form>
         </div>
 

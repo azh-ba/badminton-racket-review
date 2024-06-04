@@ -84,28 +84,34 @@ export class AddRacketComponent implements OnInit {
           review: this.racketForm.value.review,
         };
 
-        this.addRacket(racket, this.success);
+        console.log(racket);
+
+        this.addRacket(racket);
+
+        this.racketForm.reset();
+
+        alert('Changes applied successfully!');
       }
   }
 
-  addRacket(racket: Racket, callbackSuccess: any): void {
+  addRacket(racket: Racket): void {
     this.racketService.addRacket(racket)
     .pipe(
       tap({error: (error) => {this.error = error}}),
       catchError(err => of([]))
     )
     .subscribe();
-    callbackSuccess();
+    // callbackSuccess();
   }
 
-  success(): void {
-    this.snackbar.open(
-      'Successfully added!',
-      'Close',
-      {
-        duration: 5000,
-      }
-    );
-    this.racketForm.reset();
-  }
+  // success(): void {
+  //   this.snackbar.open(
+  //     'Successfully added!',
+  //     'Close',
+  //     {
+  //       duration: 5000,
+  //     }
+  //   );
+  //   this.racketForm.reset();
+  // }
 }

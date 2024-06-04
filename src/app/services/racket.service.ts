@@ -42,20 +42,16 @@ export class RacketService {
     }
   }
 
+  // Get a list of rackets
   getRackets(): Observable<Racket[]> {
     let messageErr: string = ' could\'t load data.';
     return this.httpClient.get<Racket[]>(this.apiUrl, this.httpOptions)
       .pipe(
         catchError(this.handleError<Racket[]>('getRackets', messageErr,[]))
-        // catchError(() => {
-        //   console.info('Error handled by Racket Service.');
-        //   return throwError(() => {
-        //     return new Error('Couldn\'t load data.');
-        //   })
-        // })
       );
   }
 
+  // Get the list of brands
   getBrands(): Observable<String[]> {
     let messageErr: string = ' could\'t load data.';
     const url = `${this.apiUrl}/brands`;
@@ -64,6 +60,7 @@ export class RacketService {
     );
   }
 
+  // Get a list of rackets with criterias
   getFilteredRackets(form: FormGroup): Observable<Racket[]> {
     let messageErr: string = ' could\'t load data.';
 
@@ -98,6 +95,7 @@ export class RacketService {
     );
   }
 
+  // Get a single racket
   getRacket(id: number): Observable<Racket> {
     let messageErr: string = ' could\'t load data.';
     const url = `${this.apiUrl}/${id}`;
@@ -106,6 +104,7 @@ export class RacketService {
     );
   }
 
+  // Add a new racket
   addRacket(racket: Racket): Observable<Racket> {
     let messageErr: string = ' could\'t upload data.';
     return this.httpClient.post<Racket>(this.apiUrl, racket, this.httpOptions).pipe(
@@ -113,6 +112,7 @@ export class RacketService {
     );
   }
 
+  // Update an existing racket
   updateRacket(id: number, racket: Racket): Observable<Racket> {
     let messageErr: string = ' could\'t upload data.';
     const url = `${this.apiUrl}/${id}`;
@@ -121,6 +121,7 @@ export class RacketService {
     );
   }
 
+  // Delete an existing racket
   deleteRacket(id?: number): Observable<Racket> {
     let messageErr: string = ' could\'t delete data.';
     const url = `${this.apiUrl}/${id}`;

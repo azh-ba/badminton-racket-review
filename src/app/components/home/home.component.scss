@@ -15,10 +15,16 @@ h2 {
 
 .home-main {
     min-width: 350px;
-    width: min(70%, 700px);
+    width: min(95%, 677px);
 
     display: block;
     margin: 20px auto;
+
+    /* grid */
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(338px, 1fr));
+    align-items: start;
 
     // border: 2px solid black;
     // border-radius: 5px;

@@ -1,5 +1,5 @@
 .list {
-    max-width: 40%;
+    max-width: 70%;
 }
 
 .rackets-list {
@@ -16,7 +16,9 @@ a {
     font-size: 17px;
 
     padding-left: 10px;
-    width: max(40%, 200px);
+
+    display: block;
+    width: 250px;
     margin: 5px 0;
 
     background-color: white;
@@ -30,4 +32,8 @@ a {
         border: 2px solid red;
         color: red;
     }
+}
+
+span {
+    width: 100%;
 }

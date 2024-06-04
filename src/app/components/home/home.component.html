@@ -4,10 +4,10 @@
   <h2>Oops! Something is wrong...</h2>
 </div>
 
+<!-- Loaded database -->
+<h2 *ngIf="rackets && !error">Welcome To Badminton Racket Review!</h2>
 <div class="home-main">
-  <!-- Loaded database -->
   <div *ngIf="rackets && !error">
-    <h2>Welcome To Badminton Racket Review!</h2>
     <div class="home">
       <div class="rackets-menu">
         <a *ngFor="let racket of rackets" routerLink="/detail/{{racket.id}}">

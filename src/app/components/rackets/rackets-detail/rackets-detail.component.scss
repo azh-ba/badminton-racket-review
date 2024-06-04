@@ -1,7 +1,13 @@
 .rackets-detail {
-    width: max(355px, 90%);
-    margin: auto;
-    margin-top: 20px;
+    // width: max(355px, 90%);
+    // margin: auto;
+    // margin-top: 20px;
+
+    min-width: 360px;
+    width: min(70%, 700px);
+
+    display: block;
+    margin: 20px auto;
 
     border: 2px solid black;
     border-radius: 5px;

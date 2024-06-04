@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
-import { tap, catchError, of } from 'rxjs';
+import { tap, catchError, of, debounce, debounceTime, distinctUntilChanged } from 'rxjs';
 
 import { RacketService } from 'src/app/services/racket.service';
 import { Racket } from 'src/app/racket';
@@ -47,6 +47,23 @@ export class RacketsSearchComponent implements OnInit {
         catchError(err => of([]))
       )
       .subscribe((b: String[]) => this.brandsList = b);
+  }
+
+  // Name search
+  nameSearch: string = '';
+  search(): void {
+    // Search without filter
+    if (!this.isAdvance) {
+      this.racketService.getRackets()
+        .pipe(
+          tap({error: (error) => {this.error = error}}),
+          catchError(err => of([]))
+        )
+        .subscribe((r: Racket[]) => 
+          this.filterRackets = r.filter(n => n.name.toLowerCase().includes(this.nameSearch.toLowerCase()))
+        );
+    }
+    // Search with filter --> getFilteredRackets()
   }
 
   // Display advance options
@@ -180,8 +197,14 @@ export class RacketsSearchComponent implements OnInit {
       )
       .subscribe({
         next: (rackets) => {
-          console.log(rackets);
-          this.filterRackets = rackets;
+          if (this.isAdvance) {
+            this.filterRackets = rackets.filter(n => 
+              n.name.toLowerCase().includes(
+                this.nameSearch.toLowerCase())
+            );
+          } else {
+            this.filterRackets = rackets;
+          }
           this.toRacketMain.emit(this.filterRackets);
         }
     });
