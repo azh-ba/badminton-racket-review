@@ -16,7 +16,9 @@ export class RacketService {
   // httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'})};
   apiUrl = 'https://localhost:7203/Racket';
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'})
-    .set('access-control-allow-origin', "https://localhost:7203/") };                 
+    .set('access-control-allow-origin', "https://localhost:7203/") };    
+  httpOptionsImage = { headers: new HttpHeaders({ 'enctype': 'multipart/form-data'})
+    .set('access-control-allow-origin', "https://localhost:7203/")};             
 
   constructor(
     private httpClient: HttpClient,
@@ -127,6 +129,16 @@ export class RacketService {
     const url = `${this.apiUrl}/${id}`;
     return this.httpClient.delete<Racket>(url, this.httpOptions).pipe(
       catchError(this.handleError<Racket>('deleteRacket', messageErr))
+    );
+  }
+
+  // Upload racket image
+  uploadImage(formData: FormData): Observable<FormData> {
+    let messageErr: string = ' could\'t upload image.';
+    const url = `${this.apiUrl}/image-upload`;
+    console.log(url);
+    return this.httpClient.post<FormData>(url, formData, this.httpOptionsImage).pipe(
+      catchError(this.handleError<FormData>('uploadImage', messageErr))
     );
   }
 }

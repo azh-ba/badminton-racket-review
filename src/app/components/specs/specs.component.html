@@ -1,4 +1,18 @@
-<div class="specs">
+<form class="upload-form" (ngSubmit)="onSubmit()">
+    <!-- Iamge -->
+    <div class="form-control">
+        <label for="img">Upload image: </label>
+        <input type="file" class="file-input" (change)="onImageChange($event)">
+    </div>
+    
+    <!-- Submit button -->
+    <input type="submit" value="upload">
+</form>
+
+<h2 *ngIf="!fileCheck">No image selected!</h2>
+
+
+<!-- <div class="specs">
     <p>
         This page will explain the specs listed with each racket.
     </p>
@@ -52,4 +66,4 @@
     <p>
         <b><i>String tension</i></b> : Maximum string tension that the racket can hold. If exceed, the racket will be more likely to break.
     </p>
-</div>
+</div> -->

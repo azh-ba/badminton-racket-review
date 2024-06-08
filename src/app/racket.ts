@@ -9,5 +9,6 @@ export interface Racket {
     weight: string;
     tension: number;
     imgPath?: string;
+    img?: File;
     review?: string;
 }

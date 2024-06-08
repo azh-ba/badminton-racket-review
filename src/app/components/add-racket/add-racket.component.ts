@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { Racket } from 'src/app/racket';
 
 import { RacketService } from 'src/app/services/racket.service';
@@ -17,6 +17,7 @@ export class AddRacketComponent implements OnInit {
   componentName: string = 'add-racket';
 
   racketForm!: FormGroup;
+  newImg?: File;
 
   constructor(
     private racketService: RacketService,
@@ -38,35 +39,41 @@ export class AddRacketComponent implements OnInit {
     });
   }
 
-  get name() {
-    return this.racketForm.get('name');
-  }
-  get brand() {
-    return this.racketForm.get('brand');
-  }
-  get price() {
-    return this.racketForm.get('price');
-  }
-  get length() {
-    return this.racketForm.get('length');
-  }
-  get balancePoint() {
-    return this.racketForm.get('balancePoint');
-  }
-  get shaftFlex() {
-    return this.racketForm.get('shaftFlex');
-  }
-  get weight() {
-    return this.racketForm.get('weight');
-  }
-  get tension() {
-    return this.racketForm.get('tension');
-  }
-  get imgPath() {
-    return this.racketForm.get('imgPath');
-  }
-  get review() {
-    return this.racketForm.get('review');
+  // get name() {
+  //   return this.racketForm.get('name');
+  // }
+  // get brand() {
+  //   return this.racketForm.get('brand');
+  // }
+  // get price() {
+  //   return this.racketForm.get('price');
+  // }
+  // get length() {
+  //   return this.racketForm.get('length');
+  // }
+  // get balancePoint() {
+  //   return this.racketForm.get('balancePoint');
+  // }
+  // get shaftFlex() {
+  //   return this.racketForm.get('shaftFlex');
+  // }
+  // get weight() {
+  //   return this.racketForm.get('weight');
+  // }
+  // get tension() {
+  //   return this.racketForm.get('tension');
+  // }
+  // get imgPath() {
+  //   return this.racketForm.get('imgPath');
+  // }
+  // get review() {
+  //   return this.racketForm.get('review');
+  // }
+
+  onImageChange(event: any): void {
+    const file: File = event.target.files[0];
+
+    console.log(file);
   }
 
   onSubmit(): void {
@@ -101,17 +108,5 @@ export class AddRacketComponent implements OnInit {
       catchError(err => of([]))
     )
     .subscribe();
-    // callbackSuccess();
   }
-
-  // success(): void {
-  //   this.snackbar.open(
-  //     'Successfully added!',
-  //     'Close',
-  //     {
-  //       duration: 5000,
-  //     }
-  //   );
-  //   this.racketForm.reset();
-  // }
 }
